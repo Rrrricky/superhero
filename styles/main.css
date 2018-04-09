@@ -1,0 +1,68 @@
+@font-face {
+  font-family: "GalanoBold";
+  src: url("../src/fonts/galano_grotesque_bold.ttf");
+}
+@font-face {
+  font-family: "GalanoLight";
+  src: url("../src/fonts/Galano_Grotesque_Light.ttf");
+}
+@font-face {
+  font-family: "SourceSansPro";
+  src: url("../src/fonts/SourceSansPro-SemiBold.ttf");
+  font-weight: 8000;
+}
+@font-face {
+  font-family: "SourceSansPro";
+  src: url("../src/fonts/SourceSansPro-Italic.ttf");
+  font-style: italic;
+}
+@font-face {
+  font-family: "SourceSansPro";
+  src: url("../src/fonts/SourceSansPro-Regular.ttf");
+  font-weight: 400;
+}
+html,
+body {
+  font-family: GalanoBold;
+  color: #333;
+}
+.loader-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  background: #fefefe;
+  top: 0;
+  left: 0;
+  z-index: 800;
+  transition: opacity 0.5s;
+}
+.loader-container #loader {
+  width: 80%;
+  height: 80%;
+  display: block;
+  transform: translate3d(0, 0, 0);
+  text-align: center;
+}
+.unfindable-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  font-size: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.unfindable-container .page {
+  font-size: 30px;
+}
+.unfindable-container .giphy {
+  margin-top: 20px;
+  width: 300px;
+  height: auto;
+}
