@@ -10,7 +10,6 @@ try{
     $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ); //Remove the double pdo
 }
 catch(Exception $e){
-
     $mail = 'eric.dufreche@hetic.net'; // Destination
     $jump = '\n';
     
@@ -53,5 +52,6 @@ catch(Exception $e){
 
     //Sending e-mail
     mail($mail, $subject, $message, $header);
-    die('Couldn\'t connect');
+    require 'views/pages/error_dbase.php';
+    exit();
 }

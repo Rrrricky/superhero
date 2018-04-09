@@ -1,4 +1,5 @@
-<? require 'models/connection.php'; ?>
+<? require 'models/model.php'; ?>
+<? connection($pdo); ?>
 <? $title = 'Login'; ?>
 <? ob_start() ?>
   <form action="#" method="post">

@@ -1,4 +1,5 @@
-<? require 'models/inscription.php'; ?>
+<? require 'models/model.php'; ?>
+<? inscription($pdo) ?>
 <? $title = 'Register' ?>
 <? ob_start() ?>
   <form action="#" method="post">
