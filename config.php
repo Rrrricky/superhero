@@ -1,7 +1,7 @@
 <?
 //Careful: never put this file on a public GitHub repository
 define('DB_HOST', 'localhost'); 
-define('DB_NAME', 'exo_30_mars');
+define('DB_NAME', 'si_back_e19_p2021');
 define('DB_PORT', '8889');
 define('DB_USER', 'root');
 define('DB_PASS', 'root');
