@@ -1,6 +1,7 @@
 <?
   require 'models/model.php';
-  disconnection();
+  $account = new Account;
+  echo $account->disconnection();
   $title = 'Logout';
   $container = '';
   require 'templates/template.php';

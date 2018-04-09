@@ -1,5 +1,6 @@
 <? require 'models/model.php'; ?>
-<? connection($pdo); ?>
+<? $account = new Account ?>
+<?= $account->connection($pdo); ?>
 <? $title = 'Login'; ?>
 <? ob_start() ?>
   <form action="#" method="post">
