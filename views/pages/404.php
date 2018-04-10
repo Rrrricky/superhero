@@ -1,5 +1,4 @@
 <? $title = '404'; ?>
-<? require 'views/partials/header.php'; ?>
 <? ob_start() ?>
   <container class="app-unfindable">
     <div class="app-unfindable__404">404</div>

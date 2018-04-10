@@ -3,7 +3,6 @@
 <? $account = new Account(); ?>
 <?= $account->connection($pdo); ?>
 <? $title = 'Qui sommes-nous ?'; ?>
-<? include 'views/partials/header.php'; ?>
 <? ob_start() ?>
   <div class="app-about">
     <h1 class="app-about-title">Des super-héros du <span class="app-about-title__colored">quotidien</span></h1>

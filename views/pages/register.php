@@ -2,7 +2,6 @@
 <? $account = new Account; ?>
 <?= $account->inscription($pdo) ?>
 <? $title = 'Register' ?>
-<? require 'views/partials/header.php'; ?>
 <? ob_start() ?>
   <form class="app-subform" action="#" method="post">
     <h1 class="app-subform-title">S'inscrire</h1>

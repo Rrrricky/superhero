@@ -30,7 +30,7 @@ body {
 }
 body .app-header {
   width: 100%;
-  height: 8%;
+  height: 60px;
   font-family: GalanoBold;
   border-bottom: 1px solid #333;
   display: flex;

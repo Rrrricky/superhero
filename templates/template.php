@@ -21,6 +21,7 @@
   <script src="src/lottie.js"></script>
 </head>
 <body>
+  <? require 'views/partials/header.php'; ?>
   <div class="app-specific">
     <?= $container ?>   <!-- Specific element -->
   </div>

@@ -2,7 +2,6 @@
 <? $account = new Account ?>
 <?= $account->connection($pdo); ?>
 <? $title = 'Login'; ?>
-<? require 'views/partials/header.php'; ?>
 <? ob_start() ?>
   <form class="app-loginform" action="profil" method="post">
     <h1 class="app-loginform-title">Se connecter</h1>
