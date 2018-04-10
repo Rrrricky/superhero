@@ -1,4 +1,5 @@
 <?
+  session_start();
   require 'models/model.php';
   $account = new Account();
   echo $account->connected($pdo);
@@ -7,3 +8,5 @@
   $container = ''; 
   require 'templates/template.php';
   require 'views/partials/footer.php'; 
+
+  

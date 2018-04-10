@@ -7,7 +7,7 @@ require 'config.php';
 // Pages
 isset($_GET['q']) ? $q = $_GET['q'] : $q = '';
 
-  if($q === ''){
+  if($q === '' || $q === 'home'){
       $page = 'home';
   }
   else if($q === 'register'){

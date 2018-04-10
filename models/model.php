@@ -16,10 +16,6 @@ class Account extends Model{
 
   public function connected($_pdo){
     session_start(); // Useful to limit the access to some pages
-    if(isset($_SESSION['id']) AND isset($_SESSION['pseudo'])){
-      echo 'Bonjour '.$_SESSION['pseudo'];
-      // echo 'Bonjour '.$_COOKIE['pseudo'];
-    }
     //1. Get username and his status from table users and groups
     //2. Create an inner join between: id_group from table 'users' and id from table 'groups'
     // $query = $_pdo->query
@@ -52,8 +48,6 @@ class Account extends Model{
         
         setcookie('pseudo', $result[0]->pseudo, time() + 10, null, null, false, true); // httpOnly option to avoid XSS breach
         setcookie('id', $result[0]->id, time() + 10, null, null, false, true);
-    
-        echo 'You\'re connected!';
       }
       else{
         echo 'Wrong username or password!';
@@ -68,12 +62,6 @@ class Account extends Model{
     // Remove session
     $_SESSION = [];
     session_destroy();
-    
-    // Remove autolog cookies
-    setcookie('login', '');
-    setcookie('pass_hache', '');
-    
-    echo 'Disconnected';
   }
 
   

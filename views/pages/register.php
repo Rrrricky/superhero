@@ -4,7 +4,7 @@
 <? $title = 'Register' ?>
 <? require 'views/partials/header.php'; ?>
 <? ob_start() ?>
-  <form action="#" method="post">
+  <form class="app-subform" action="#" method="post">
     <label for="name">Pseudo</label>
     <input type="text" id="name" placeholder="Super-Me" name="pseudo" value="">
     <label for="mail">E-mail</label>
