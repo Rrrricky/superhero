@@ -4,7 +4,7 @@
 <? $title = 'Login'; ?>
 <? require 'views/partials/header.php'; ?>
 <? ob_start() ?>
-  <form class="app-loginform" action="#" method="post">
+  <form class="app-loginform" action="profil" method="post">
     <label for="pseudo">Pseudo</label>
     <input type="text" id="pseudo" name="pseudo" value="">
     <label for="password">Password</label>

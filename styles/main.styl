@@ -3,13 +3,14 @@ $mine-shaft = #333
 $header-height = 8%
 
 html, body 
-  font-family GalanoBold
+  font-family Helvetica
   color $mine-shaft
 
 body
   .app-header 
     width 100%
     height $header-height
+    font-family GalanoBold
     border-bottom 1px solid $mine-shaft
     display flex
     justify-content flex-end
@@ -80,3 +81,22 @@ body
     
     &__indication
       font-size 30px
+
+  .app-about
+    width 70vw
+    margin 20vh auto
+
+    &-title
+      margin 0 auto
+      font-family GalanoBold
+      font-size 55px
+      width 500px
+      text-align center
+
+    &-description
+      display flex
+      justify-content space-around
+      margin-top 60px
+
+      &__graph
+        width 30vw

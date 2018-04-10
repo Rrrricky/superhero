@@ -22,6 +22,9 @@ isset($_GET['q']) ? $q = $_GET['q'] : $q = '';
   else if($q === 'about'){
       $page = 'about';
   }
+  else if($q === 'profil'){
+      $page = 'profil';
+  }
   else{
       $page = '404';
   }
