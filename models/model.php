@@ -1,5 +1,6 @@
 <?
 
+
 abstract class Model{
   protected function query_request($sql, $_pdo){ // For query request
       $query = $_pdo->query($sql);
@@ -102,6 +103,7 @@ class Account extends Model{
   
   
   public function inscription($_pdo){
+
     
     // Check information
     if(!empty($_POST)){
@@ -134,7 +136,7 @@ class Account extends Model{
       if(strlen($_POST['pass'])<5){
         $errorMessages[] = 'Min 5 chars for the password';
       }
-      if(strpos($email, '@') !== true){
+      if(strpos($email, '@') != true){
         $errorMessages[] = 'Need a valid email';
       }
 
@@ -164,11 +166,66 @@ class Account extends Model{
         $prepare->bindValue(':pass', $pass_hache);
 
         $execute = $prepare->execute();
+
+        function callMailer($_pseudo, $_email){
+          $actions = new Actions();
+          $mail = $actions->mailer($_pseudo, $_email); //Trigger the mailer function of the other class
+          echo $mail;
+        }
+        callMailer($pseudo, $email);
         $errorMessages[] = '';
-        return $errorMessages;
       }
     }
     $errorMessages[] = '';
     return $errorMessages;
+  }
+}
+
+
+
+
+class Actions{
+  
+  public function mailer($_pseudo, $_email){
+    $mail = $_email; // Destination
+    $jump = '\n';
+    
+    //Text messages and HTML messages
+    $message_txt = 'Bienvenue '.$_name.' !';
+    $message_html = '<html><head></head><body>Bienvenue '.$_name.' !</body></html>';
+    
+    //Boundary
+    $boundary = '-----='.md5(rand());
+    
+    //Subject
+    $subject = 'Confirmation d\'inscription';
+
+    
+    //Email header
+    $header = 'From: \"Eric\"<eric.dufreche@hetic.net>'.$jump;
+    $header.= 'Reply-to: \"Eric\" <eric.dufreche@hetic.net>'.$jump;
+    $header.= 'MIME-Version: 1.0'.$jump;
+    $header.= 'Content-Type: multipart/alternative;'.$jump.' boundary=\"$boundary\"'.$jump;
+    
+    //Creation of the message
+    $message = $jump.'--'.$boundary.$jump;
+
+    //Text format
+    $message.= 'Content-Type: text/plain; charset=\"ISO-8859-1\"'.$jump;
+    $message.= 'Content-Transfer-Encoding: 8bit'.$jump;
+    $message.= $jump.$message_txt.$jump;
+
+    $message.= $jump.'--'.$boundary.$jump;
+
+    //HTML format
+    $message.= 'Content-Type: text/html; charset=\"ISO-8859-1\"'.$jump;
+    $message.= 'Content-Transfer-Encoding: 8bit'.$jump;
+    $message.= $jump.$message_html.$jump;
+
+    $message.= $jump.'--'.$boundary.'--'.$jump;
+    $message.= $jump.'--'.$boundary.'--'.$jump;
+
+    //Sending e-mail
+    mail($mail, $subject, $message, $header);
   }
 }
