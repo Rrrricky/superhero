@@ -23,8 +23,10 @@
 }
 html,
 body {
+  overflow: hidden;
   font-family: Helvetica;
   color: #333;
+  background-size: cover;
 }
 body .app-header {
   width: 100%;
@@ -32,6 +34,8 @@ body .app-header {
   font-family: GalanoBold;
   border-bottom: 1px solid #333;
   display: flex;
+  background: #333;
+  color: #fefefe;
   justify-content: flex-end;
   align-items: center;
 }
@@ -40,31 +44,71 @@ body .app-header-nav__item {
   padding: 10px;
   margin-right: 30px;
   text-decoration: none;
-  transition: color 0.5s;
+  transition: color 0.3s;
 }
 body .app-header-nav__item:hover {
-  color: #00f;
+  color: #ffd000;
 }
 body .app-loginform {
-  width: 30vw;
-  height: 400px;
-  margin: 50px auto;
-  padding: 30px 30px;
-  border: 1px solid #333;
-  border-radius: 10px;
+  height: 480px;
 }
-body .app-loginform input {
+body .app-subform {
+  height: 570px;
+}
+body .app-loginform,
+body .app-subform {
+  width: 400px;
+  margin: 50px auto;
+  padding: 50px 70px;
+  border-radius: 10px;
+  color: #333;
+}
+body .app-loginform-title,
+body .app-subform-title {
+  font-family: GalanoBold;
+  font-size: 25px;
+  text-align: center;
+  margin-bottom: 50px;
+  border-bottom: 1px solid #333;
+  padding-bottom: 25px;
+}
+body .app-loginform label,
+body .app-subform label {
+  font-size: 10px;
+}
+body .app-loginform input,
+body .app-subform input {
   width: 100%;
-  height: 20px;
+  height: 40px;
   margin: 10px 0 20px 0;
   display: block;
-  border-bottom: 1px solid #333;
-}
-body .app-loginform button {
   border: 1px solid #333;
-  margin-top: 30px;
-  padding: 10px;
+  border-radius: 2px;
+  padding-left: 5px;
+}
+body .app-loginform-button,
+body .app-subform-button {
+  width: 80px;
+  font-size: 12px;
+  border: 1px solid #333;
+  border-radius: 3px;
+  display: flex;
+  margin: 50px 90px 0 90px;
+  text-align: center;
   cursor: pointer;
+  padding: 10px 10px;
+  transition: transform 0.2s;
+  will-change: transform;
+}
+body .app-loginform-button:hover,
+body .app-subform-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 1px rgba(200,200,200,0.7);
+}
+body .app-loginform-register,
+body .app-subform-register {
+  margin-top: 50px;
+  font-size: 15px;
 }
 body .app-loader {
   display: flex;
@@ -78,6 +122,7 @@ body .app-loader {
   left: 0;
   z-index: 800;
   transition: opacity 0.5s;
+  will-change: opacity;
 }
 body .app-loader__element {
   width: 80%;
@@ -103,21 +148,49 @@ body .app-unfindable__indication {
   font-size: 30px;
 }
 body .app-about {
-  width: 70vw;
-  margin: 20vh auto;
+  width: 500px;
+  margin: 10vh 0 0 10vw;
 }
 body .app-about-title {
-  margin: 0 auto;
   font-family: GalanoBold;
   font-size: 55px;
   width: 500px;
-  text-align: center;
+  text-shadow: 0 1px 1px rgba(200,200,200,0.5);
+}
+body .app-about-title__colored {
+  color: #ffd000;
 }
 body .app-about-description {
-  display: flex;
-  justify-content: space-around;
   margin-top: 60px;
+  line-height: 25px;
+  font-size: 13px;
 }
 body .app-about-description__graph {
-  width: 30vw;
+  margin-top: 40px;
+}
+body .app-about-image {
+  height: 100vh;
+  width: auto;
+  z-index: -1;
+  box-shadow: -1px 0 1px rgba(150,150,150,0.2);
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+body .app-about-register {
+  margin-top: 60px;
+  font-size: 18px;
+  display: flex;
+  justify-content: flex-end;
+  text-decoration: none;
+  color: #ffd000;
+  font-weight: bold;
+}
+body .app-about-register:hover .app-about-register__arrow {
+  transform: translateX(7px);
+}
+body .app-about-register__arrow {
+  transition: transform 0.3s;
+  will-change: transform;
+  margin-left: 8px;
 }
