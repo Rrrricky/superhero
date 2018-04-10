@@ -3,6 +3,8 @@
 // Config
 require 'config.php';
 
+
+// Pages
 isset($_GET['q']) ? $q = $_GET['q'] : $q = '';
 
   if($q === ''){
@@ -17,13 +19,13 @@ isset($_GET['q']) ? $q = $_GET['q'] : $q = '';
   else if($q === 'logout'){
       $page = 'logout';
   }
+  else if($q === 'about'){
+      $page = 'about';
+  }
   else{
       $page = '404';
   }
 
-  // Includes
-  include 'views/partials/header.php';
-  include 'views/pages/'.$page.'.php';
-  include 'views/partials/footer.php';
 
+  include 'views/pages/'.$page.'.php';
 ?>

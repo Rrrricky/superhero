@@ -2,6 +2,7 @@
 <? $account = new Account; ?>
 <?= $account->inscription($pdo) ?>
 <? $title = 'Register' ?>
+<? require 'views/partials/header.php'; ?>
 <? ob_start() ?>
   <form action="#" method="post">
     <label for="name">Pseudo</label>
@@ -16,3 +17,4 @@
   </form>
 <? $container = ob_get_clean() ?>
 <? require 'templates/template.php'; ?>
+<? require 'views/partials/footer.php'; ?>

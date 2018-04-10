@@ -21,11 +21,11 @@
   <script src="src/lottie.js"></script>
 </head>
 <body>
-  <div id="container">
+  <div class="app-specific">
     <?= $container ?>   <!-- Specific element -->
   </div>
-  <div class="loader-container">
-    <div id="loader"></div>
+  <div class="app-loader js-app-loader">
+    <div class="app-loader__element js-app-loader__element"></div>
   </div>
   <script src="src/loader.js"></script>
   <script src="src/scripts/FirstClass.js"></script>

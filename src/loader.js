@@ -2,9 +2,9 @@ const loaderData = {"v":"4.10.1","fr":60,"ip":0,"op":120,"w":800,"h":800,"nm":"l
 
 let loaded = false
 
-const loaderContainer = document.querySelector(".loader-container")
+const loaderContainer = document.querySelector(".js-app-loader")
 const loader = {
-  container: loaderContainer.querySelector("#loader"),
+  container: loaderContainer.querySelector(".js-app-loader__element"),
   renderer: "svg",
   loop: true,
   autoplay: true,

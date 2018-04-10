@@ -26,7 +26,25 @@ body {
   font-family: GalanoBold;
   color: #333;
 }
-.loader-container {
+body .app-header {
+  width: 100%;
+  height: 8%;
+  border-bottom: 1px solid #333;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+body .app-header-nav__item {
+  cursor: pointer;
+  padding: 10px;
+  margin-right: 30px;
+  text-decoration: none;
+  transition: color 0.5s;
+}
+body .app-header-nav__item:hover {
+  color: #00f;
+}
+body .app-loader {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -39,17 +57,18 @@ body {
   z-index: 800;
   transition: opacity 0.5s;
 }
-.loader-container #loader {
+body .app-loader__element {
   width: 80%;
   height: 80%;
   display: block;
   transform: translate3d(0, 0, 0);
   text-align: center;
 }
-.unfindable-container {
+body .app-unfindable {
   position: absolute;
   top: 0;
   left: 0;
+  z-index: -1;
   width: 100vw;
   height: 100vh;
   font-size: 200px;
@@ -58,11 +77,6 @@ body {
   align-items: center;
   flex-direction: column;
 }
-.unfindable-container .page {
+body .app-unfindable__indication {
   font-size: 30px;
-}
-.unfindable-container .giphy {
-  margin-top: 20px;
-  width: 300px;
-  height: auto;
 }

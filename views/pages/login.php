@@ -2,6 +2,7 @@
 <? $account = new Account ?>
 <?= $account->connection($pdo); ?>
 <? $title = 'Login'; ?>
+<? require 'views/partials/header.php'; ?>
 <? ob_start() ?>
   <form action="#" method="post">
     <label for="pseudo">Pseudo</label>
@@ -12,3 +13,4 @@
   </form>
 <? $container = ob_get_clean() ?>
 <? require 'templates/template.php'; ?>
+<? require 'views/partials/footer.php'; ?>
