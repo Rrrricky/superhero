@@ -38,6 +38,52 @@ body .app-header {
   justify-content: flex-end;
   align-items: center;
 }
+body .app-header-nav {
+  display: flex;
+  align-items: center;
+}
+body .app-header-nav__profil {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+}
+body .app-header-nav__profil__pic_container {
+  width: 30px;
+  height: 30px;
+  margin-left: 20px;
+  border-radius: 100%;
+  overflow: hidden;
+}
+body .app-header-nav__profil__pic_container__img {
+  width: 30px;
+  height: auto;
+}
+body .app-header-nav__profil__displayer--hidden {
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  bottom: -70px;
+  display: none;
+  left: 0;
+}
+body .app-header-nav__profil__displayer--hidden__container {
+  background: #333;
+  padding: 10px;
+  text-decoration: none;
+}
+body .app-header-nav__profil__displayer--hidden__container__profil {
+  transition: color 0.3s;
+}
+body .app-header-nav__profil__displayer--hidden__container__profil:hover {
+  color: #ffd000;
+}
+body .app-header-nav__profil__displayer--hidden__container__logout {
+  transition: color 0.3s;
+}
+body .app-header-nav__profil__displayer--hidden__container__logout:hover {
+  color: #f00;
+}
 body .app-header-nav__item {
   cursor: pointer;
   padding: 10px;
@@ -45,7 +91,7 @@ body .app-header-nav__item {
   text-decoration: none;
   transition: color 0.3s;
 }
-body .app-header-nav__item:hover {
+body .app-header-nav__item:hover:not(.app-header-nav__profil) {
   color: #ffd000;
 }
 body .app-loginform {

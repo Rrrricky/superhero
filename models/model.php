@@ -71,7 +71,7 @@ class Account extends Model{
           session_start(); // Give the user a session number 
           $_SESSION['id'] = $result[0]->id;
           $_SESSION['pseudo'] = $result[0]->pseudo;
-          header('Location: profil');
+          header('Location: posts');
         }
         else{
           $errorMessages[] = 'Wrong username or password!'; // Incorrect username or password

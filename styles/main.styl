@@ -3,8 +3,10 @@
 
 // Variables
 $mine-shaft = #333
-$header-height = 60px
 $gold = #ffd000
+$header-height = 60px
+$padding-headerItems = 10px
+$transition-color = color .3s
 
 $h1-size = 55px;
 $h2-size = 45px;
@@ -29,14 +31,53 @@ body
     align-items center
 
     &-nav
+      display flex
+      align-items center
+      &__profil
+        display flex
+        justify-content space-around
+        align-items center
+        position relative
+        &__pic_container
+          width 30px
+          height 30px
+          margin-left 20px 
+          border-radius 100%
+          overflow hidden
+          &__img 
+            width 30px
+            height auto
+        &__displayer--hidden
+          flex-direction column
+          justify-content center
+          position absolute
+          bottom -70px
+          display none
+          left 0
+          &__container
+            background $mine-shaft
+            padding $padding-headerItems
+            text-decoration none
+            &__profil
+              transition $transition-color
+              &:hover
+                color $gold
+            &__logout
+              transition $transition-color
+              &:hover
+                color red
+
+                
+        
       &__item
         cursor pointer
-        padding 10px
+        padding $padding-headerItems
         margin-right 30px
         text-decoration none
-        transition color .3s
-        &:hover
+        transition $transition-color
+        &:hover:not(.app-header-nav__profil)
           color $gold
+
 
   .app-loginform
     height 480px

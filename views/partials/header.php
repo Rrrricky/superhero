@@ -4,9 +4,20 @@
       <span class="app-header-nav__item">Connexion</span>
     </a>
   <? else: ?>
-    <a class="app-header-nav__item" href="logout">
-      <span class="app-header-nav__item">Déconnexion</span>
-    </a>
+    <div class="app-header-nav__item app-header-nav__profil js-app-header-nav__profil">
+      <span>Hello, <?= isset($_SESSION['pseudo']) ? $_SESSION['pseudo'] : '' ?></span>
+      <div class="app-header-nav__profil__displayer--hidden js-app-header-nav__profil__displayer--hidden">
+        <a class="app-header-nav__profil__displayer--hidden__container" href="profil">
+          <span class="app-header-nav__profil__displayer--hidden__container__profil">Mon profil</span>
+        </a>
+        <a class="app-header-nav__profil__displayer--hidden__container" href="logout">
+          <span class="app-header-nav__profil__displayer--hidden__container__logout">Déconnexion</span>
+        </a>
+      </div>
+      <div class="app-header-nav__item__pic app-header-nav__profil__pic_container">
+        <img class="app-header-nav__profil__pic_container__img" src="src/images/batman.png" alt="icone-profil"/>
+      </div>
+    </div>
   <? endif ?>
 <? $header_container = ob_get_clean() ?>
 <? require 'templates/header.php'; ?>
