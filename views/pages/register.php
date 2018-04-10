@@ -1,8 +1,12 @@
+<? session_start() ?>
 <? require 'models/model.php'; ?>
 <? $account = new Account; ?>
-<?= $account->inscription($pdo) ?>
+<? $errorMessages[] = $account->inscription($pdo) ?>
 <? $title = 'Register' ?>
 <? ob_start() ?>
+  <? foreach($errorMessages as $messages): ?>
+    <p class="app-register-error"><?= $messages ?></p>
+  <? endforeach ?>
   <form class="app-subform" action="#" method="post">
     <h1 class="app-subform-title">S'inscrire</h1>
     <label for="name">Pseudo</label>

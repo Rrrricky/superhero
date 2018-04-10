@@ -1,6 +1,8 @@
+<? session_start() ?>
 <? require 'models/model.php'; ?>
 <? $account = new Account(); ?>
-<?= $account->connection($pdo); ?>
+<? $errorMessages[]=''; ?>
+<?= $account->connection($pdo, $errorMessages); ?>
 <? $title = 'Qui sommes-nous ?'; ?>
 <? ob_start() ?>
   <div>Hello <?= isset($_SESSION['pseudo']) ? $_SESSION['pseudo'] : '' ?></div>

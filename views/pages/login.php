@@ -1,10 +1,15 @@
 <? require 'models/model.php'; ?>
 <? $account = new Account ?>
-<?= $account->connection($pdo); ?>
+<? $errorMessages = $account->connection($pdo); ?>
 <? $title = 'Login'; ?>
 <? ob_start() ?>
-  <form class="app-loginform" action="profil" method="post">
+  <form class="app-loginform" action="#" method="post">
     <h1 class="app-loginform-title">Se connecter</h1>
+    <? if(isset($errorMessages)):?>
+      <? foreach($errorMessages as $message): ?>
+        <p class="app-logerror"><?= $message ?></p>
+      <? endforeach ?>
+    <? endif ?>
     <label for="pseudo">Pseudo</label>
     <input type="text" id="pseudo" name="pseudo" value="">
     <label for="password">Password</label>

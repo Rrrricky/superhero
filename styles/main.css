@@ -52,6 +52,12 @@ body .app-header-nav__item:hover {
 body .app-loginform {
   height: 480px;
 }
+body .app-logerror {
+  color: #f00;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
 body .app-subform {
   height: 570px;
 }
@@ -60,6 +66,7 @@ body .app-subform {
   width: 400px;
   margin: 50px auto;
   padding: 50px 70px;
+  border: 2px solid #333;
   border-radius: 10px;
   color: #333;
 }
@@ -93,7 +100,7 @@ body .app-subform-button {
   border: 1px solid #333;
   border-radius: 3px;
   display: flex;
-  margin: 50px 90px 0 90px;
+  margin: 30px 90px 0 90px;
   text-align: center;
   cursor: pointer;
   padding: 10px 10px;
