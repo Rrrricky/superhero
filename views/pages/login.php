@@ -3,16 +3,16 @@
 <? $errorMessages = $account->connection($pdo); ?>
 <? $title = 'Login'; ?>
 <? ob_start() ?>
+  <? if(isset($errorMessages)):?>
+    <? foreach($errorMessages as $message): ?>
+      <p class="app-logerror"><?= $message ?></p>
+    <? endforeach ?>
+  <? endif ?>
   <form class="app-loginform" action="#" method="post">
     <h1 class="app-loginform-title">Se connecter</h1>
-    <? if(isset($errorMessages)):?>
-      <? foreach($errorMessages as $message): ?>
-        <p class="app-logerror"><?= $message ?></p>
-      <? endforeach ?>
-    <? endif ?>
     <label for="pseudo">Pseudo</label>
     <input type="text" id="pseudo" name="pseudo" value="">
-    <label for="password">Password</label>
+    <label for="password">Mot de passe</label>
     <input type="password" id="password" name="pass" value="">
     <button class="app-loginform-button" type="submit" value="submit">Connexion</button>
     <div class="app-loginform-register">
