@@ -183,22 +183,6 @@ body .app-loader__element {
   transform: translate3d(0, 0, 0);
   text-align: center;
 }
-body .app-unfindable {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  width: 100vw;
-  height: 100vh;
-  font-size: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-body .app-unfindable__indication {
-  font-size: 30px;
-}
 body .app-about {
   width: 500px;
   margin: 10vh 0 0 10vw;
@@ -346,4 +330,23 @@ body .app-profil-container-secondary-achievement__comments {
 body .app-profil-container-secondary-achievement__comments__title {
   font-family: GalanoBold;
   font-size: $h5-size;
+}
+body .app-unfindable {
+  font-family: GalanoBold;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+body .app-unfindable__404 {
+  font-size: 150px;
+}
+body .app-unfindable__page {
+  font-size: 50px;
 }
