@@ -287,11 +287,11 @@ body .app-posts-container__post {
 }
 body .app-profil {
   height: 100%;
-  margin-top: 60px;
+  margin-top: 30px;
   margin: 10vh 0 0 10vw;
 }
 body .app-profil-title {
-  width: 500px;
+  width: 400px;
   padding-bottom: 50px;
   font-family: GalanoBold;
   font-size: 55px;
@@ -326,6 +326,13 @@ body .app-profil-container-personnal__pic {
   width: 140px;
   height: auto;
 }
+body .app-profil-container-personnal__nopic {
+  width: 80px;
+  margin-bottom: 10px;
+  color: #f00;
+  border: 1px solid #333;
+  padding: 10px;
+}
 body .app-profil-container-personnal__name {
   font-family: GalanoBold;
   font-size: 30px;
@@ -337,17 +344,18 @@ body .app-profil-container-personnal__date {
   margin-bottom: 20px;
 }
 body .app-profil-container-secondary {
+  margin-top: 50px;
   width: 400px;
 }
 body .app-profil-container-secondary-achievement__medals {
-  height: 200px;
+  height: 100px;
 }
 body .app-profil-container-secondary-achievement__medals__title {
   font-family: GalanoBold;
   font-size: $h5-size;
 }
 body .app-profil-container-secondary-achievement__comments {
-  height: 200px;
+  height: 100px;
 }
 body .app-profil-container-secondary-achievement__comments__title {
   font-family: GalanoBold;

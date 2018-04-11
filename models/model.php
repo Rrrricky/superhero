@@ -24,8 +24,8 @@ class Account extends Model{
 
   public function connected($_pdo){
     // session_start(); // Useful to limit the access to some pages
-    //1. Get username and his status from table users and groups
-    //2. Create an inner join between: id_group from table 'users' and id from table 'groups'
+    // 1. Get username and his status from table users and groups
+    // 2. Create an inner join between: id_group from table 'users' and id from table 'groups'
     // $query = $_pdo->query
     $sql = ('SELECT u.pseudo AS user_pseudo, g.status AS user_status  
              FROM users AS u INNER JOIN groups AS g
@@ -46,9 +46,12 @@ class Account extends Model{
     
       $pseudo = $_POST['pseudo']; 
     
-      $sql = ('SELECT id, pseudo, pass, date_inscription FROM users WHERE pseudo = "'.$pseudo.'"'); // Get the id and password 
+      $sql = ('SELECT id, pseudo, pass, date_inscription, picture_name, picture_type FROM users WHERE pseudo = "'.$pseudo.'"'); // Get the id and password 
       $result = $this->query_request($sql, $_pdo);
 
+
+
+     
 
       // Check errors
       if(empty($pseudo)){ // Missing username
@@ -73,6 +76,12 @@ class Account extends Model{
           $_SESSION['id'] = $result[0]->id;
           $_SESSION['pseudo'] = $result[0]->pseudo;
           $_SESSION['inscription'] = $result[0]->date_inscription;
+          $_SESSION['picture_name'] = $result[0]->picture_name;
+          $_SESSION['picture_name'] = preg_replace('/\\.[^.\\s]{3,4}$/', '', $_SESSION['picture_name']); //Picture name without extension
+          if($result[0]->picture_name != NULL){
+            $result[0]->picture_type = trim(explode('/', $result[0]->picture_type)[1]); //To only get the extension
+            $_SESSION['picture_type'] = $result[0]->picture_type;
+          }
           header('Location: posts');
         }
         else{
@@ -194,8 +203,8 @@ class Actions{
     $jump = '\n';
     
     // Text messages and HTML messages
-    $message_txt = 'Bienvenue '.$_name.' !';
-    $message_html = '<html><head></head><body>Bienvenue '.$_name.' !</body></html>';
+    $message_txt = 'Bienvenue '.$_pseudo.' !';
+    $message_html = '<html><head></head><body>Bienvenue '.$_pseudo.' !</body></html>';
     
     // Boundary
     $boundary = '-----='.md5(rand());
@@ -266,32 +275,42 @@ class Profil extends Model{
       $extensions_allowed = ['jpg', 'jpeg', 'gif', 'png'];
 
       if (in_array($extension_upload, $extensions_allowed)){
-        $picture = $_FILES['profil']['name'];
+        $picture_name = $_FILES['profil']['name'];
         $picture_size = $_FILES['profil']['size'];
         $picture_type = $_FILES['profil']['type'];
-
-        // Regex for acceptable syntax
-        $picture = strtr($picture,
-          'ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ',
-          'AAAAAACEEEEIIIIOOOOOUUUUYaaaaaaceeeeiiiioooooouuuuyy');
-        $picture = preg_replace('/([^.a-z0-9]+)/i', '-', $picture);
-
-
-        // move_uploaded_file($_FILES['profil']['tmp_name'], 'uploads/' . basename($picture));
-
-        // SQL request
         $picture_content = file_get_contents($_FILES['profil']['tmp_name']);
  
 
-        $sql = ('UPDATE users SET picture = :picture, picture_size = :picture_size, picture_type = :picture_type WHERE pseudo = "'.$_SESSION["pseudo"].'"');
+   
+        move_uploaded_file($_FILES['profil']['tmp_name'], 'uploads/' . basename($picture_name));
+
+        // Regex for syntax
+        $picture_name = strtr($picture_name,
+        'ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ',
+        'AAAAAACEEEEIIIIOOOOOUUUUYaaaaaaceeeeiiiioooooouuuuyy');
+        $picture_name = preg_replace('/([^.a-z0-9]+)/i', '-', $picture_name);
+        
+
+        
+        $sql = ('UPDATE users SET picture = :picture, picture_name = :picture_name, picture_size = :picture_size, picture_type = :picture_type WHERE pseudo = "'.$_SESSION["pseudo"].'"');
 
         $prepare = $this->prepare_request($sql, $_pdo);
         
-        $prepare->bindValue(':picture', addslashes($picture_content)); // To remove binary chars
-        $prepare->bindValue(':picture_size', $picture_size); // The user will be member, not an admin
+        $prepare->bindValue(':picture', addslashes($picture_content)); 
+        $prepare->bindValue(':picture_name', $picture_name); 
+        $prepare->bindValue(':picture_size', $picture_size); 
         $prepare->bindValue(':picture_type', $picture_type);
 
         $execute = $prepare->execute();
+
+        $sql = ('SELECT picture_name, picture_type FROM users WHERE pseudo = "'.$_SESSION["pseudo"].'"'); // Get the id and password 
+        $result = $this->query_request($sql, $_pdo);
+
+    
+        $result[0]->picture_type = trim(explode('/', $result[0]->picture_type)[1]); //To only get the extension
+        $_SESSION['picture_name'] = $result[0]->picture_name;
+        $_SESSION['picture_type'] = $result[0]->picture_type;
+        $_SESSION['picture_name'] = preg_replace('/\\.[^.\\s]{3,4}$/', '', $_SESSION['picture_name']); //Picture name without extension
       }
     }
     $errorMessages[] = '';
