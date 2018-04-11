@@ -1,7 +1,7 @@
 <? session_start() ?>
 <? require 'models/model.php'; ?>
 <? $account = new Account(); ?>
-<? $errorMessages[]=''; ?>
+<? $errorMessages=''; ?>
 <?= $account->connection($pdo, $errorMessages); ?>
 <? $title = 'Merci'; ?>
 <? ob_start() ?>

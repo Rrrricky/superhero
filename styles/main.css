@@ -246,3 +246,58 @@ body .app-about-register__arrow {
   will-change: transform;
   margin-left: 8px;
 }
+body .app-posts {
+  width: 100vw;
+  height: 100%;
+  margin-top: 60px;
+}
+body .app-posts-title {
+  font-family: GalanoBold;
+  font-size: 55px;
+  margin: 10vh 0 0 10vw;
+  padding-bottom: 60px;
+}
+body .app-posts__filter {
+  width: 80vw;
+  margin: 40px auto;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-bottom: 1px solid #333;
+}
+body .app-posts__filter__label {
+  font-weight: bold;
+  position: relative;
+}
+body .app-posts__filter__select {
+  display: flex;
+  align-items: center;
+  height: 30px;
+  margin: 10px 0 10px 10px;
+  padding: 0 25px 0 10px;
+  display: block;
+  border: 1px solid #333;
+  border-radius: 2px;
+}
+body .app-posts__filter__arrow {
+  position: absolute;
+  top: 0;
+  right: -100px;
+  z-index: -1;
+}
+body .app-posts-container {
+  width: 80vw;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto 30px auto;
+}
+body .app-posts-container__post {
+  width: 25vw;
+  height: 15vw;
+  background: #f00;
+  border: 2px solid #333;
+  cursor: pointer;
+}
