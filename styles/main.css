@@ -247,11 +247,19 @@ body .app-posts-title {
   margin: 10vh 0 0 10vw;
   padding-bottom: 60px;
 }
+body .app-posts-create {
+  background: #fefefe;
+  margin: 10vh 0 0 10vw;
+  font-weight: bold;
+  text-decoration: none;
+  border: 2px solid #333;
+  border-radius: 10px;
+  padding: 10px;
+}
 body .app-posts__filter {
   width: 80vw;
   margin: 40px auto;
   padding: 20px;
-  text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -296,6 +304,7 @@ body .app-posts-container__post {
   position: relative;
   background: #fefefe;
   border-radius: 5px;
+  border: 2px solid #333;
 }
 body .app-posts-container__post__visual {
   width: 70px;
@@ -346,17 +355,85 @@ body .app-posts-container__post__text-button button {
   font-weight: bold;
   cursor: pointer;
 }
-body .app-profil {
+.app-postcreation {
+  width: 400px;
+  margin: 50px auto;
+  padding: 50px 70px;
+  border: 3px solid #333;
+  border-radius: 10px;
+  color: #333;
+  background: #fefefe;
+}
+.app-postcreation-title {
+  font-family: GalanoBold;
+  font-size: 25px;
+  color: #422973;
+  text-align: center;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #333;
+  padding-bottom: 25px;
+}
+.app-postcreation label {
+  font-size: 10px;
+  color: #422973;
+}
+.app-postcreation input {
+  width: 100%;
+  height: 40px;
+  margin: 10px 0 20px 0;
+  display: block;
+  background: #eee;
+  border-radius: 2px;
+  padding-left: 5px;
+  border: 1px solid #333;
+}
+.app-postcreation select {
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  width: 100%;
+  height: 40px;
+  margin: 10px 0 20px 0;
+  display: block;
+  border: 1px solid #333;
+  background: #eee;
+  border-radius: 2px;
+}
+.app-postcreation-button {
+  width: 80px;
+  font-size: 12px;
+  border: 1px solid #333;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  margin: 30px 90px 0 90px;
+  cursor: pointer;
+  padding: 10px 10px;
+  transition: transform 0.2s;
+  will-change: transform;
+  margin-bottom: 30px;
+}
+.app-postcreation-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 1px rgba(200,200,200,0.7);
+}
+.app-postcreation-indication {
+  margin-top: 10px;
+  font-size: 10px;
+  font-style: italic;
+  line-height: 0px;
+}
+.app-profil {
   height: 100%;
   margin-top: 30px;
 }
-body .app-profil-title {
+.app-profil-title {
   width: 400px;
   margin: 10vh 0 0 10vw;
   font-family: GalanoBold;
   font-size: 55px;
 }
-body .app-profil-container {
+.app-profil-container {
   display: flex;
   margin-top: 80px;
   border-bottom: 1px solid #999;
@@ -364,13 +441,13 @@ body .app-profil-container {
   margin: 10vh 0 0 5vw;
   padding: 40px 60px;
 }
-body .app-profil-container-personnal {
+.app-profil-container-personnal {
   width: 40vw;
 }
-body .app-profil-container-personnal-form {
+.app-profil-container-personnal-form {
   font-size: 8px;
 }
-body .app-profil-container-personnal-form__submit {
+.app-profil-container-personnal-form__submit {
   margin-top: 10px;
   font-size: 10px;
   padding: 10px;
@@ -383,51 +460,51 @@ body .app-profil-container-personnal-form__submit {
   cursor: pointer;
   margin-bottom: 10px;
 }
-body .app-profil-container-personnal-form__submit:hover {
+.app-profil-container-personnal-form__submit:hover {
   transform: translateY(-2px);
   box-shadow: 0 1px 1px #ccc;
 }
-body .app-profil-container-personnal__pic {
+.app-profil-container-personnal__pic {
   width: 140px;
   height: auto;
 }
-body .app-profil-container-personnal__nopic {
+.app-profil-container-personnal__nopic {
   width: 80px;
   margin-bottom: 10px;
   color: #f00;
   border: 1px solid #333;
   padding: 10px;
 }
-body .app-profil-container-personnal__name {
+.app-profil-container-personnal__name {
   font-family: GalanoBold;
   font-size: 30px;
   padding-bottom: 1px;
   color: #800080;
 }
-body .app-profil-container-personnal__date {
+.app-profil-container-personnal__date {
   font-size: 12px;
   font-style: italic;
   margin-bottom: 20px;
 }
-body .app-profil-container-secondary {
+.app-profil-container-secondary {
   margin-top: 50px;
   width: 400px;
 }
-body .app-profil-container-secondary-achievement__medals {
+.app-profil-container-secondary-achievement__medals {
   height: 100px;
 }
-body .app-profil-container-secondary-achievement__medals__title {
+.app-profil-container-secondary-achievement__medals__title {
   font-family: GalanoBold;
   font-size: $h5-size;
 }
-body .app-profil-container-secondary-achievement__comments {
+.app-profil-container-secondary-achievement__comments {
   height: 100px;
 }
-body .app-profil-container-secondary-achievement__comments__title {
+.app-profil-container-secondary-achievement__comments__title {
   font-family: GalanoBold;
   font-size: $h5-size;
 }
-body .app-unfindable {
+.app-unfindable {
   font-family: GalanoBold;
   position: absolute;
   top: 0;
@@ -440,9 +517,9 @@ body .app-unfindable {
   align-items: center;
   flex-direction: column;
 }
-body .app-unfindable__404 {
+.app-unfindable__404 {
   font-size: 150px;
 }
-body .app-unfindable__page {
+.app-unfindable__page {
   font-size: 50px;
 }

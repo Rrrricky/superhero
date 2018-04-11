@@ -6,6 +6,15 @@
 <? ob_start() ?>
   <main class="app-posts">
     <h1 class="app-posts-title">Annonces</h1>
+    <? if(!empty($_SESSION['pseudo'])): ?>
+    <a class="app-posts-create" href="create">
+      <span>✚ Poster une annonce</span>
+    </a>
+    <? else: ?>
+    <a class="app-posts-create" href="login">
+      <span>✚ Me connecter pour poster une annonce</span>
+    </a>
+    <? endif ?>
     <div class="app-posts__filter">
       <label class="app-posts__filter__label" for="filter">
         <span>Filtres</span>

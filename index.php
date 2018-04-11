@@ -28,6 +28,9 @@ isset($_GET['q']) ? $q = $_GET['q'] : $q = '';
   else if($q === 'profil'){
       $page = 'profil';
   }
+  else if($q === 'create'){
+      $page = 'create';
+  }
   else{
       $page = '404';
   }
