@@ -3,6 +3,7 @@
 
 // Variables
 $mine-shaft = #333
+$dark-purple = #422973
 $gold = #ffd000
 $header-height = 60px
 $padding-headerItems = 10px
@@ -19,13 +20,13 @@ html, body
   background-size cover
 
 body
+  background $gold
   .app-header 
     width 100%
     height $header-height
     font-family GalanoBold
-    border-bottom 1px solid $mine-shaft
     display flex
-    background $mine-shaft
+    background $dark-purple
     color #fefefe
     justify-content flex-end
     align-items center
@@ -92,27 +93,30 @@ body
     width 400px
     margin 50px auto
     padding 50px 70px
-    border 2px solid $mine-shaft
+    border 3px solid $mine-shaft
     border-radius 10px
     color $mine-shaft
-    // background rgba(200, 200, 200, .9)
+    background #fefefe
     &-title
       font-family GalanoBold
       font-size 25px
+      color $dark-purple
       text-align center
       margin-bottom 20px
-      border-bottom 1px solid $mine-shaft
+      border-bottom 2px solid $mine-shaft
       padding-bottom 25px
     label
       font-size 10px
+      color $dark-purple
     input
       width 100%
       height 40px
       margin 10px 0 20px 0
       display block
-      border 1px solid $mine-shaft
+      background #eee
       border-radius 2px
       padding-left 5px
+      border 1px solid $mine-shaft
     &-button
       width 80px
       font-size 12px
@@ -165,7 +169,7 @@ body
       text-shadow 0 1px 1px rgba(200, 200, 200, 0.5)
 
       &__colored
-          color $gold
+          color $mine-shaft
 
     &-description
       margin-top 60px
@@ -190,7 +194,7 @@ body
       display flex
       justify-content flex-end
       text-decoration none
-      color $gold
+      color $dark-purple
       font-weight bold
       &:hover .app-about-register__arrow
         transform translateX(7px)
@@ -218,7 +222,7 @@ body
       justify-content center
       align-items center
       position relative
-      border-bottom 1px solid $mine-shaft
+      border-bottom 2px solid $mine-shaft
       &__label
         font-weight bold
         position relative
@@ -230,38 +234,88 @@ body
         padding 0 25px 0 10px
         display block
         border 1px solid $mine-shaft
+        background #fefefe
         border-radius 2px
       &__arrow
         position absolute
         top 0
         right -100px
-        z-index -1 
+        z-index 1
     &-container
       width 80vw
       display flex
+      flex-wrap wrap
       justify-content space-between
-      margin 0 auto 30px auto
+      margin 0 auto
       &__post
         width 25vw
         height 15vw
-        background red
-        border 2px solid $mine-shaft
-        cursor pointer
+        padding 15px
+        display flex
+        margin-bottom 30px
+        overflow hidden
+        position relative
+        background #fefefe
+        border-radius 5px
+        &__visual
+          width 70px
+          height 70px
+          margin-right 25px
+          border 1px solid $mine-shaft
+          border-radius 100%
+          overflow hidden
+        &__text
+          width 200px
+          font-size 15px
+          &__category
+            font-size 11px
+            text-transform uppercase
+            font-weight bold
+            color #999
+            margin 10px 0 20px 0
+          &__subject
+            &-title
+              font-weight bold
+            &-location
+              font-weight bold
+          &__availability
+            margin-top 10px
+            font-size 13px
+            margin-bottom 20px
+          &__creation
+            font-size 12px
+            font-style italic
+            font-weight thin
+          &-button
+            cursor pointer
+            position absolute
+            border-radius 10px
+            padding 5px 15px
+            background $dark-purple
+            right 35px
+            bottom 20px
+            button
+              color #fefefe
+              font-weight bold
+              cursor pointer
+
 
 
   .app-profil
       height 100%
       margin-top 30px
-      margin 10vh 0 0 10vw
       &-title
         width 400px
-        padding-bottom 50px
+        margin 10vh 0 0 10vw
         font-family GalanoBold
         font-size $h1-size
-        border-bottom: 1px solid #333
       &-container
         display flex
         margin-top 80px
+        border-bottom 1px solid #999
+        box-shadow 10px 10px 30px #999
+        margin 10vh 0 0 5vw
+        padding 40px 60px
         &-personnal
           width 40vw
           &-form
@@ -269,9 +323,11 @@ body
             &__submit
               margin-top 10px
               font-size 10px
-              padding 5px
+              padding 10px
               display block
+              background #fefefe
               border 1px solid rgba(200, 200, 200, .6)
+              border-radius 5px
               transition transform .3s
               will-change transform
               cursor pointer
@@ -292,10 +348,11 @@ body
           &__name
             font-family GalanoBold
             font-size $h4-size
-            padding-bottom 5px
-            color $gold
+            padding-bottom 1px
+            color purple
           &__date
-            font-size 13px
+            font-size 12px
+            font-style italic
             margin-bottom 20px
         &-secondary
           margin-top 50px

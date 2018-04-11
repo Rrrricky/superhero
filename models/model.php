@@ -1,6 +1,6 @@
 <?
 
-
+/** About general sql queries */
 abstract class Model{
   protected function query_request($sql, $_pdo){ // For query request
       $query = $_pdo->query($sql);
@@ -16,11 +16,8 @@ abstract class Model{
 
 
 
-
+/** About account pages */
 class Account extends Model{
-
-
-
 
   public function connected($_pdo){
     // session_start(); // Useful to limit the access to some pages
@@ -35,11 +32,6 @@ class Account extends Model{
   }
 
 
-
-
-
-
-
   public function connection($_pdo){
 
     if(!empty($_POST)){ // If data sended by the form
@@ -49,9 +41,6 @@ class Account extends Model{
       $sql = ('SELECT id, pseudo, pass, date_inscription, picture_name, picture_type FROM users WHERE pseudo = "'.$pseudo.'"'); // Get the id and password 
       $result = $this->query_request($sql, $_pdo);
 
-
-
-     
 
       // Check errors
       if(empty($pseudo)){ // Missing username
@@ -69,7 +58,6 @@ class Account extends Model{
         }else{ // If the username exists
           $isPasswordCorrect = password_verify($pass, $result[0]->pass); // Compare password used with the hash in the database
         }
-    
       
         if($isPasswordCorrect){ // If the username and password match
           session_start(); // Give the user a session number 
@@ -95,13 +83,9 @@ class Account extends Model{
   }
 
 
-
-
-
-
-
   public function disconnection(){
-    session_start(); // Give the user a session number 
+
+    session_start();
 
     // Remove session
     $_SESSION = [];
@@ -109,12 +93,7 @@ class Account extends Model{
   }
 
 
-
-
-  
-  
   public function inscription($_pdo){
-
     
     // Check information
     if(!empty($_POST)){
@@ -195,9 +174,10 @@ class Account extends Model{
 
 
 
-
+/** About secondary actions */
 class Actions{
   
+  // Mail to confirm the registration
   public function mailer($_pseudo, $_email){
     $mail = $_email; // Destination
     $jump = '\n';
@@ -244,6 +224,7 @@ class Actions{
 
 
 
+/** About the profil page */
 class Profil extends Model{
 
   public function transfer_picture($_pdo){
@@ -284,14 +265,14 @@ class Profil extends Model{
    
         move_uploaded_file($_FILES['profil']['tmp_name'], 'uploads/' . basename($picture_name));
 
-        // Regex for syntax
+        // Regex for correct syntax
         $picture_name = strtr($picture_name,
         'ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ',
         'AAAAAACEEEEIIIIOOOOOUUUUYaaaaaaceeeeiiiioooooouuuuyy');
         $picture_name = preg_replace('/([^.a-z0-9]+)/i', '-', $picture_name);
         
 
-        
+        // Upadte the user picture
         $sql = ('UPDATE users SET picture = :picture, picture_name = :picture_name, picture_size = :picture_size, picture_type = :picture_type WHERE pseudo = "'.$_SESSION["pseudo"].'"');
 
         $prepare = $this->prepare_request($sql, $_pdo);
@@ -315,5 +296,18 @@ class Profil extends Model{
     }
     $errorMessages[] = '';
     return $errorMessages;
+  }
+}
+
+
+
+/** About the posts page */
+class Posts extends Model{
+
+  // Display all posts
+  public function getPosts($_pdo){
+    $sql = 'SELECT category, title, location, date_mission, user_name, date_creation FROM posts';
+    $getPosts = $this->query_request($sql, $_pdo);
+    return $getPosts;
   }
 }

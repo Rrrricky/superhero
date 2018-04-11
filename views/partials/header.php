@@ -15,7 +15,7 @@
         </a>
       </div>
       <div class="app-header-nav__item__pic app-header-nav__profil__pic_container">
-        <img class="app-header-nav__profil__pic_container__img" src="src/images/batman.png" alt="icone-profil"/>
+        <img class="app-header-nav__profil__pic_container__img" src="uploads/<?= $_SESSION['picture_name'].'.'.$_SESSION['picture_type'] ?>" alt="user-pic">
       </div>
     </div>
   <? endif ?>
