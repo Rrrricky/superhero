@@ -3,35 +3,53 @@
 <? $title = 'profil'; ?>
 <? ob_start() ?>
   <main class="app-profil">
+    
     <h1 class="app-profil-title">Mon profil</h1>
-    <container class="app-profil-personnal">
-      <img src="app-profil-personnal__pic" alt="user-pic">
-      <h1 class="app-profil-personnal__name"><?= $_SESSION['pseudo'] ?></h1>
-    </container>
-    <container class="app-profil-achievement">
-      <div class="app-profil-achivement__medals">
-        <h2 class="app-profil-achivement__medals__title">Mes badges</h2>
-        <container class="app-profil-achivement__medals-list">
-          <div class="app-profil-achivement__medals-list-bloc">
-            <div class="app-profil-achivement__medals-list-bloc__medal">    
-              <img src="" alt="">
-              <span></span>
-            </div>
-          </div>
-        </container> 
+    
+    <container class="app-profil-container">
+
+
+      <div class="app-profil-container-personnal">
+        <img class="app-profil-container-personnal__pic" src="src/images/batman.jpg" alt="user-pic">
+        <h4 class="app-profil-container-personnal__name"><?= $_SESSION['pseudo'] ?></h4>
+        <span class="app-profil-container-personnal__date">Inscrit le: <?= date('d/m/y', strtotime($_SESSION['inscription'])) ?></span>
       </div>
-      <div class="app-profil-achivement__comments">
-        <h2 class="app-profil-achivement__medals__title">Mes commentaires</h2>
-        <container class="app-profil-achivement__medals-list">
-          <div class="app-profil-achivement__medals-list-bloc">
-            <div class="app-profil-achivement__medals-list-bloc__medal">    
-              <img src="" alt="">
-              <span></span>
-            </div>
+
+
+      <div class="app-profil-container-secondary">
+
+        <div class="app-profil-container-secondary-achievement">
+
+          <div class="app-profil-container-secondary-achievement__medals">
+            <h5 class="app-profil-container-secondary-achievement__medals__title">Mes badges</h5>
+            <div class="app-profil-container-secondary-achievement__medals-list">
+              <div class="app-profil-container-secondary-achievement__medals-list-bloc">
+                <div class="app-profil-container-secondary-achievement__medals-list-bloc__medal">    
+                  <img src="" alt="">
+                  <span></span>
+                </div>
+              </div>
+            </div> 
           </div>
-        </container> 
+
+          <div class="app-profil-container-secondary-achievement__comments">
+            <h5 class="app-profil-container-secondary-achievement__comments__title">Mes commentaires</h5>
+            <div class="app-profil-container-secondary-achievement__comments-list">
+              <div class="app-profil-container-secondary-achievement__comments-list-bloc">
+                <div class="app-profil-container-secondary-achievement__comments-list-bloc__comment">    
+                  <img src="" alt="">
+                  <span></span>
+                </div>
+              </div>
+            </div> 
+          </div>
+
+        </div>
+
       </div>
+
     </container>
+
   <main>  
 <? $container = ob_get_clean() ?>
 <? require 'templates/template.php'; ?>

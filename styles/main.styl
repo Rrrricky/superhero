@@ -251,9 +251,7 @@ body
         position absolute
         top 0
         right -100px
-        z-index -1
-
-        
+        z-index -1 
     &-container
       width 80vw
       display flex
@@ -265,3 +263,40 @@ body
         background red
         border 2px solid $mine-shaft
         cursor pointer
+
+
+  .app-profil
+      height 100%
+      margin-top 60px
+      margin 10vh 0 0 10vw
+      &-title
+        font-family GalanoBold
+        font-size $h1-size
+      &-container
+        display flex
+        margin-top 80px
+        &-personnal
+          width 40vw
+          &__pic
+            width 140px
+            height auto
+          &__name
+            margin-top 40px
+            font-family GalanoBold
+            font-size $h4-size
+            padding-bottom 5px
+          &__date
+            font-size 13px
+        &-secondary
+          width 400px
+          &-achievement
+            &__medals
+              height 200px
+              &__title
+                font-family GalanoBold
+                font-size $h5-size
+            &__comments
+              height 200px
+              &__title
+                font-family GalanoBold
+                font-size $h5-size

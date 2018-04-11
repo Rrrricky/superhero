@@ -46,7 +46,7 @@ class Account extends Model{
     
       $pseudo = $_POST['pseudo']; 
     
-      $sql = ('SELECT id, pseudo, pass FROM users WHERE pseudo = "'.$pseudo.'"'); // Get the id and password 
+      $sql = ('SELECT id, pseudo, pass, date_inscription FROM users WHERE pseudo = "'.$pseudo.'"'); // Get the id and password 
       $result = $this->query_request($sql, $_pdo);
 
 
@@ -71,6 +71,7 @@ class Account extends Model{
           session_start(); // Give the user a session number 
           $_SESSION['id'] = $result[0]->id;
           $_SESSION['pseudo'] = $result[0]->pseudo;
+          $_SESSION['inscription'] = $result[0]->date_inscription;
           header('Location: posts');
         }
         else{
