@@ -291,8 +291,11 @@ body .app-profil {
   margin: 10vh 0 0 10vw;
 }
 body .app-profil-title {
+  width: 500px;
+  padding-bottom: 50px;
   font-family: GalanoBold;
   font-size: 55px;
+  border-bottom: 1px solid #333;
 }
 body .app-profil-container {
   display: flex;
@@ -301,18 +304,37 @@ body .app-profil-container {
 body .app-profil-container-personnal {
   width: 40vw;
 }
+body .app-profil-container-personnal-form {
+  font-size: 8px;
+}
+body .app-profil-container-personnal-form__submit {
+  margin-top: 10px;
+  font-size: 10px;
+  padding: 5px;
+  display: block;
+  border: 1px solid rgba(200,200,200,0.6);
+  transition: transform 0.3s;
+  will-change: transform;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+body .app-profil-container-personnal-form__submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 1px 1px #ccc;
+}
 body .app-profil-container-personnal__pic {
   width: 140px;
   height: auto;
 }
 body .app-profil-container-personnal__name {
-  margin-top: 40px;
   font-family: GalanoBold;
   font-size: 30px;
   padding-bottom: 5px;
+  color: #ffd000;
 }
 body .app-profil-container-personnal__date {
   font-size: 13px;
+  margin-bottom: 20px;
 }
 body .app-profil-container-secondary {
   width: 400px;

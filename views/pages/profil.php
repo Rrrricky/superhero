@@ -1,18 +1,27 @@
 <? session_start() ?>
 <? require 'models/model.php'; ?>
+<? $profil = new Profil ?>
+<? $errorMessages = $profil->transfer_picture($pdo) ?>
 <? $title = 'profil'; ?>
 <? ob_start() ?>
   <main class="app-profil">
-    
     <h1 class="app-profil-title">Mon profil</h1>
     
     <container class="app-profil-container">
 
-
+    
       <div class="app-profil-container-personnal">
-        <img class="app-profil-container-personnal__pic" src="src/images/batman.jpg" alt="user-pic">
         <h4 class="app-profil-container-personnal__name"><?= $_SESSION['pseudo'] ?></h4>
-        <span class="app-profil-container-personnal__date">Inscrit le: <?= date('d/m/y', strtotime($_SESSION['inscription'])) ?></span>
+        <div class="app-profil-container-personnal__date">Inscrit le: <?= date('d/m/y', strtotime($_SESSION['inscription'])) ?></div>
+        <img class="app-profil-container-personnal__pic" src="src/images/batman.jpg" alt="user-pic">
+
+        <form class="app-profil-container-personnal-form" enctype="multipart/form-data" action="#" method="post"> <!-- enctype for binary data -->
+          <input class="app-profil-container-personnal-form__file" type="file" name="profil">
+          <button class="app-profil-container-personnal-form__submit" type="submit" value="submit">Send</button>
+        </form>
+        <? foreach($errorMessages as $messages): ?> 
+          <p class="app-logerror"><?= $messages ?></p>
+        <? endforeach ?>  
       </div>
 
 

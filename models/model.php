@@ -50,6 +50,7 @@ class Account extends Model{
       $result = $this->query_request($sql, $_pdo);
 
 
+      // Check errors
       if(empty($pseudo)){ // Missing username
         $errorMessages[]='Missing username';
       }
@@ -113,6 +114,7 @@ class Account extends Model{
       $email = htmlspecialchars($_POST['email']);
       $_POST['pass'] = htmlspecialchars($_POST['pass']);
 
+      // Check errors 
       if(empty($pseudo)){
         $errorMessages[] = 'Missing username';
       }
@@ -170,7 +172,7 @@ class Account extends Model{
 
         function callMailer($_pseudo, $_email){
           $actions = new Actions();
-          $mail = $actions->mailer($_pseudo, $_email); //Trigger the mailer function of the other class
+          $mail = $actions->mailer($_pseudo, $_email); // Trigger the mailer function of the other class
           echo $mail;
         }
         callMailer($pseudo, $email);
@@ -191,34 +193,34 @@ class Actions{
     $mail = $_email; // Destination
     $jump = '\n';
     
-    //Text messages and HTML messages
+    // Text messages and HTML messages
     $message_txt = 'Bienvenue '.$_name.' !';
     $message_html = '<html><head></head><body>Bienvenue '.$_name.' !</body></html>';
     
-    //Boundary
+    // Boundary
     $boundary = '-----='.md5(rand());
     
-    //Subject
+    // Subject
     $subject = 'Confirmation d\'inscription';
 
     
-    //Email header
+    // Email header
     $header = 'From: \"Eric\"<eric.dufreche@hetic.net>'.$jump;
     $header.= 'Reply-to: \"Eric\" <eric.dufreche@hetic.net>'.$jump;
     $header.= 'MIME-Version: 1.0'.$jump;
     $header.= 'Content-Type: multipart/alternative;'.$jump.' boundary=\"$boundary\"'.$jump;
     
-    //Creation of the message
+    // Creation of the message
     $message = $jump.'--'.$boundary.$jump;
 
-    //Text format
+    // Text format
     $message.= 'Content-Type: text/plain; charset=\"ISO-8859-1\"'.$jump;
     $message.= 'Content-Transfer-Encoding: 8bit'.$jump;
     $message.= $jump.$message_txt.$jump;
 
     $message.= $jump.'--'.$boundary.$jump;
 
-    //HTML format
+    // HTML format
     $message.= 'Content-Type: text/html; charset=\"ISO-8859-1\"'.$jump;
     $message.= 'Content-Transfer-Encoding: 8bit'.$jump;
     $message.= $jump.$message_html.$jump;
@@ -226,7 +228,73 @@ class Actions{
     $message.= $jump.'--'.$boundary.'--'.$jump;
     $message.= $jump.'--'.$boundary.'--'.$jump;
 
-    //Sending e-mail
+    // Sending e-mail
     mail($mail, $subject, $message, $header);
+  }
+}
+
+
+
+class Profil extends Model{
+
+  public function transfer_picture($_pdo){
+
+    // Set variables
+    if(!empty($_FILES)){
+      $upload   = false;
+      $pic_blob = '';
+      $pic_size = 0;
+      $pic_type = '';
+      $size_max = 1000000;
+      $upload   = is_uploaded_file($_FILES['profil']['tmp_name']);
+
+      // Check corrupted file
+      if (!isset($_FILES['profil']) AND $_FILES['profil']['error'] != 0){ 
+        $errorMessages[] = "Problème de transfert";
+        return $errorMessages;
+      }
+
+      // Check size
+      if($_FILES['profil']['size'] > $size_max){ 
+        $errorMessages[] = "Fichier trop lourd, 1 Mo max.";
+        return $errorMessages;
+      }
+
+      // Check extension
+      $data_file = pathinfo($_FILES['profil']['name']);
+      $extension_upload = $data_file['extension'];
+      $extensions_allowed = ['jpg', 'jpeg', 'gif', 'png'];
+
+      if (in_array($extension_upload, $extensions_allowed)){
+        $picture = $_FILES['profil']['name'];
+        $picture_size = $_FILES['profil']['size'];
+        $picture_type = $_FILES['profil']['type'];
+
+        // Regex for acceptable syntax
+        $picture = strtr($picture,
+          'ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ',
+          'AAAAAACEEEEIIIIOOOOOUUUUYaaaaaaceeeeiiiioooooouuuuyy');
+        $picture = preg_replace('/([^.a-z0-9]+)/i', '-', $picture);
+
+
+        // move_uploaded_file($_FILES['profil']['tmp_name'], 'uploads/' . basename($picture));
+
+        // SQL request
+        $picture_content = file_get_contents($_FILES['profil']['tmp_name']);
+ 
+
+        $sql = ('UPDATE users SET picture = :picture, picture_size = :picture_size, picture_type = :picture_type WHERE pseudo = "'.$_SESSION["pseudo"].'"');
+
+        $prepare = $this->prepare_request($sql, $_pdo);
+        
+        $prepare->bindValue(':picture', addslashes($picture_content)); // To remove binary chars
+        $prepare->bindValue(':picture_size', $picture_size); // The user will be member, not an admin
+        $prepare->bindValue(':picture_type', $picture_type);
+
+        $execute = $prepare->execute();
+      }
+    }
+    $errorMessages[] = '';
+    return $errorMessages;
   }
 }

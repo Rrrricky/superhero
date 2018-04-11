@@ -254,23 +254,43 @@ body
       margin-top 60px
       margin 10vh 0 0 10vw
       &-title
+        width 500px
+        padding-bottom 50px
         font-family GalanoBold
         font-size $h1-size
+        border-bottom: 1px solid #333
       &-container
         display flex
         margin-top 80px
         &-personnal
           width 40vw
+          &-form
+            font-size 8px
+            &__submit
+              margin-top 10px
+              font-size 10px
+              padding 5px
+              display block
+              border 1px solid rgba(200, 200, 200, .6)
+              transition transform .3s
+              will-change transform
+              cursor pointer
+              margin-bottom 10px
+              &:hover
+                transform translateY(-2px)
+                box-shadow 0 1px 1px #ccc
+
           &__pic
             width 140px
             height auto
           &__name
-            margin-top 40px
             font-family GalanoBold
             font-size $h4-size
             padding-bottom 5px
+            color $gold
           &__date
             font-size 13px
+            margin-bottom 20px
         &-secondary
           width 400px
           &-achievement
