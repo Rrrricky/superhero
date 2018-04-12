@@ -1,0 +1,206 @@
+html {
+    height: 300%;
+}    
+body{
+    background-image: url(bg.svg);
+    background-size: cover;
+    position: relative;
+    min-height: 100%;
+    font-family: 'Raleway', sans-serif;
+    
+}    
+
+nav{
+    height: 8vh;
+    width: 100%;
+    background-color: #422973;
+    position: fixed;
+    z-index: 1;
+}    
+
+div.container{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    height: 8vh;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.container .vertical{
+    padding-top: 2.5vh;
+
+}
+
+a{
+    text-decoration: none;
+    color: #969696;
+    font-size: 100%;
+    font-weight: bold;
+    
+}    
+
+.selected{
+    color: white;
+}    
+
+div.user{
+    height: 6vh;
+    width: 3vw;
+    background-image: url(user.png);
+    background-size: cover;
+    margin-top: 1vh;
+}    
+
+div.jobs{
+    position: absolute;
+    display: flex;
+    height: 200vh;
+    width: 50%;
+    flex-direction: column;
+    transform: translateX(50%);
+    
+
+}
+
+
+div.jobs .job{
+    position: relative;
+    height: 18vh;  
+    width: 100%;  
+    background-color: white;
+    margin-top: 1.2vh;
+    font-size: 100%;
+}   
+
+.icon{
+    position: absolute;
+    height: 75px;
+    width: 75px;
+    background-color: #969696;
+    border-radius: 50%;
+    top: 20%; 
+    left: 7%;
+}
+
+
+
+
+.texte-1{
+    position: absolute;
+    color: #969696;
+    font-weight: bold;
+    left: 25%;
+    top: 5%;
+}
+
+.texte-2{
+    position: absolute;
+    color: black;
+    font-weight: bold;
+    left: 25%;
+    top: 35%;
+}
+
+.texte-3{
+    position: absolute;
+    color: black;
+    left: 25%;
+    top: 55%;
+}
+
+.texte-4{
+    position: absolute;
+    color: black;
+    font-style: italic;
+    left: 25%;
+    top: 75%;
+    
+}
+
+.action{
+    position: absolute;
+    color: white;
+    height: 4vh;
+    width: 8vw;
+    border-radius:10px; 
+    background-color: #6342AF; 
+    font-style: bold;
+    left: 80%;
+    top: 70%;
+    text-align: center;
+    padding-top: 1vh;
+    
+}
+
+ div.buttons{
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.buttons .flag{
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    background-color: #422973;
+    border-radius: 50%;
+    right: 2vw;
+    bottom: 5vh;
+}
+
+.buttons .flag{
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    background-color: #422973;
+    border-radius: 50%;
+    right: 2vw;
+    bottom: 12vh;
+}
+
+.buttons .note{
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    background-color: #c42c2c;
+    color: white;    
+    border-radius: 50%;
+    bottom: 17vh;
+    right: 4.5vw;
+    padding-left: 3px;
+    
+}
+
+.buttons .add{
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    background-color: #422973;
+    text-align: center;
+    color: white;    
+    border-radius: 50%;
+    font-weight: 200;
+    right: 2vw;
+    bottom: 3vh;
+    font-size: 6.5vh;
+}
+
+
+
+
+footer{
+    height: 8vh;
+    width: 100%;
+    background-color: #422973;
+    position: fixed;
+    bottom: 0;
+    z-index: 1;
+}    
+
+
+
+
+
+
