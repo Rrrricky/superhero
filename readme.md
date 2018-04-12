@@ -1,4 +1,4 @@
-# Semaine intensive Back-end - Équipe 19, P2021
+# Semaine intensive Back - Équipe 19, P2021
 
 ## Instructions
 
