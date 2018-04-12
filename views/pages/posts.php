@@ -37,8 +37,8 @@
             <span class="app-posts-container__post__text__subject-title"><?= $getPosts[$i]->title; ?></span>
             <span class="app-posts-container__post__text__subject-location">- <?= $getPosts[$i]->location; ?></span>
           </div>
-          <div class="app-posts-container__post__text__availability"><?= $getPosts[$i]->date; ?></div>
-          <div class="app-posts-container__post__text__creation"><?= $getPosts[$i]->date_creation; ?></div>
+          <div class="app-posts-container__post__text__availability">Le <?= date("d/j/Y", strtotime($getPosts[$i]->date)) ?> à <?= date("h:m", strtotime($getPosts[$i]->date)) ?></div>
+          <div class="app-posts-container__post__text__creation">Publication : <?= date("d/m/Y", strtotime($getPosts[$i]->date_creation)) ?></div>
           <a class="app-posts-container__post__text-button" href="#">
             <button>Secourir</button>
           </a>

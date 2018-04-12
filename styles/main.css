@@ -261,16 +261,37 @@ body .app-about-title {
   width: 500px;
   text-shadow: 0 1px 1px rgba(200,200,200,0.5);
 }
+@media (max-width: 600px) {
+  body .app-about-title {
+    width: 350px;
+  }
+}
 body .app-about-title__colored {
   color: #333;
+}
+@media (max-width: 600px) and (max-width: 300px) {
+  body .app-about-title {
+    width: 300px;
+  }
 }
 body .app-about-description {
   margin-top: 60px;
   line-height: 25px;
   font-size: 13px;
 }
+@media (max-width: 600px) {
+  body .app-about-description {
+    width: 350px;
+    font-size: 20px;
+  }
+}
 body .app-about-description__graph {
   margin-top: 40px;
+}
+@media (max-width: 600px) and (max-width: 500px) {
+  body .app-about-description {
+    width: 300px;
+  }
 }
 body .app-about-image {
   height: 100vh;
@@ -280,6 +301,11 @@ body .app-about-image {
   position: absolute;
   top: 0;
   right: 0;
+}
+@media (max-width: 980px) {
+  body .app-about-image {
+    display: none;
+  }
 }
 body .app-about-register {
   margin-top: 60px;
@@ -357,8 +383,8 @@ body .app-posts-container {
   margin: 0 auto;
 }
 body .app-posts-container__post {
-  width: 25vw;
-  height: 15vw;
+  width: 300px;
+  height: 200px;
   padding: 15px;
   display: flex;
   margin-bottom: 30px;

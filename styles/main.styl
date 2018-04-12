@@ -217,24 +217,28 @@ body
   .app-about
     width 500px
     margin 10vh 0 0 10vw
-
     &-title
       font-family GalanoBold
       font-size $h1-size
       width 500px
       text-shadow 0 1px 1px rgba(200, 200, 200, 0.5)
-
+      @media (max-width: 600px)
+        width 350px
+        @media (max-width: 300px)
+          width 300px
       &__colored
           color $mine-shaft
-
     &-description
       margin-top 60px
       line-height 25px
       font-size 13px
-
+      @media (max-width: 600px)
+        width 350px
+        @media (max-width: 500px)
+          width 300px
+        font-size 20px
       &__graph
         margin-top 40px
-  
     &-image
       height 100vh
       width auto
@@ -243,7 +247,8 @@ body
       position absolute
       top 0
       right 0
-
+      @media (max-width: 980px)
+        display none
     &-register
       margin-top 60px
       font-size 18px
@@ -310,8 +315,8 @@ body
       justify-content space-between
       margin 0 auto
       &__post
-        width 25vw
-        height 15vw
+        width 300px
+        height 200px
         padding 15px
         display flex
         margin-bottom 30px
