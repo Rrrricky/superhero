@@ -14,6 +14,8 @@
       <option value="bricolage">Bricolage</option>
       <option value="bricolage">Jardinage</option>
       <option value="nettoyage">Nettoyage</option>
+      <option value="nettoyage">Réparation technique</option>
+      <option value="nettoyage">Garde</option>
     </select>
     <label class="app-postcreation-inputtitle" for="title">Titre d'annonce</label>
     <input type="text" id="title" name="title" value="<?= $_POST['title'] ?>" >

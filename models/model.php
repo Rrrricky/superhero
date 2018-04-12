@@ -158,6 +158,11 @@ class Account extends Model{
 
         $execute = $prepare->execute();
 
+        $_POST['pseudo']='';
+        $_POST['email']='';
+        $_POST['pass']='';
+        $_POST['pass_confirm']='';      
+
         function callMailer($_pseudo, $_email){
           $actions = new Actions();
           $mail = $actions->mailer($_pseudo, $_email); // Trigger the mailer function of the other class
@@ -166,6 +171,15 @@ class Account extends Model{
         callMailer($pseudo, $email);
         $errorMessages[] = '';
       }
+    }else{
+
+    $_POST['pseudo']='';
+    $_POST['email']='';
+    $_POST['pass']='';
+    $_POST['pass_confirm']='';
+
+    $errorMessages[] = '';
+    return $errorMessages;
     }
     $errorMessages[] = '';
     return $errorMessages;
@@ -348,12 +362,12 @@ class Posts extends Model{
         $errorMessages[] = 'Missing email';
       }
       if(strlen($title)>16){
-        $errorMessages[] = 'Max 16 chars for the username';
+        $errorMessages[] = 'Max 16 chars for the title';
       }
       if(strlen($description)>300){
-        $errorMessages[] = 'Max 300 chars for the username';
+        $errorMessages[] = 'Max 300 chars for the description';
       }
-      if(strlen($description)<4){
+      if(strlen($title)<4){
         $errorMessages[] = 'Min 4 chars for the title';
       }
       if(strlen($description)<5){
@@ -362,6 +376,7 @@ class Posts extends Model{
       if(strpos($email, '@') != true){
         $errorMessages[] = 'Need a valid email';
       }
+
       // If there is no error
       if(empty($errorMessages)){  
         $sql = 'INSERT INTO posts_toValidate (category, title, description, location, date, name, email, phone) VALUES (:category, :title, :description, :location, :date, :name, :email, :phone)';
@@ -377,6 +392,7 @@ class Posts extends Model{
         $prepare->bindValue(':phone', $phone);
 
         $execute = $prepare->execute();
+
         $_POST['category']='';
         $_POST['title']='';
         $_POST['description']='';
@@ -385,8 +401,8 @@ class Posts extends Model{
         $_POST['name']='';
         $_POST['email']='';
         $_POST['phone']='';
-
       }
+
       $errorMessages[] = '';
       return $errorMessages;
 

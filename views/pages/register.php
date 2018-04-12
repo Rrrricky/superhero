@@ -12,9 +12,9 @@
   <form class="app-subform" action="#" method="post">
     <h1 class="app-subform-title">Inscription</h1>
     <label for="name">Pseudo</label>
-    <input type="text" id="name" placeholder="Super-Me" name="pseudo" value="">
+    <input type="text" id="name" placeholder="Super-Me" name="pseudo" value="<?= $_POST['pseudo'] ?>">
     <label for="mail">E-mail</label>
-    <input type="mail" id="mail" placeholder="eric.eric@gmail.com" name="email" value="">
+    <input type="mail" id="mail" placeholder="eric.eric@gmail.com" name="email" value="<?= $_POST['email'] ?>">
     <label for="password">Mot de passe</label>
     <input type="password" id="password" name="pass" value="">
     <label for="password_confirm">Confirmation du mot de passe</label>
