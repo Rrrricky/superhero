@@ -44,10 +44,13 @@ body .app-header-nav {
   display: flex;
   align-items: center;
 }
-body .app-header-nav__admin {
+body .app-header-nav__logo {
   position: absolute;
-  left: 0;
-  top: 10px;
+  width: 30px;
+  height: 30px;
+  top: 15px;
+  left: 15px;
+  cursor: pointer;
 }
 body .app-header-nav__profil {
   display: flex;
@@ -75,7 +78,7 @@ body .app-header-nav__profil__displayer--hidden {
   left: 0;
 }
 body .app-header-nav__profil__displayer--hidden__container {
-  background: #333;
+  background: #422973;
   padding: 10px;
   text-decoration: none;
 }
@@ -100,6 +103,48 @@ body .app-header-nav__item {
 }
 body .app-header-nav__item:hover:not(.app-header-nav__profil) {
   color: #ffd000;
+}
+body .app-home {
+  height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: GalanoBold;
+}
+body .app-home-title {
+  font-size: 120px;
+  text-transform: uppercase;
+  color: #422973;
+  margin-top: 30px;
+  transform: translateY(-20px);
+  text-shadow: 5px 3px 3px #333;
+}
+body .app-home-title__word {
+  color: #fefefe;
+}
+body .app-home-headline {
+  color: #333;
+  font-size: 20px;
+}
+body .app-home-buttons {
+  width: 250px;
+  display: flex;
+  justify-content: space-between;
+}
+body .app-home-buttons button {
+  margin-top: 50px;
+  padding: 10px;
+  border: 2px solid #555;
+  border-radius: 5px;
+  cursor: pointer;
+  background: #fefefe;
+  transition: transform 0.3s;
+  will-change: transform;
+}
+body .app-home-buttons button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 1px 4px #999;
 }
 body .app-loginform {
   height: 480px;
@@ -437,12 +482,20 @@ body .app-posts-container__post__text-button button {
   font-style: italic;
   line-height: 0px;
 }
-.app-admin-post {
-  margin-bottom: 50px;
-  margin-top: 10px;
-  margin-left: 10px;
+.app-admin-title {
+  font-family: GalanoBold;
+  font-size: 55px;
+  margin: 10vh 0 0 10vw;
+  padding-bottom: 60px;
 }
-.app-admin-post-title,
+.app-admin-post {
+  width: 300px;
+  padding: 20px;
+  background: #fefefe;
+  border: 2px solid #333;
+  border-radius: 5px;
+  margin: 10px 0 50px 10vw;
+}
 .app-admin-post__data {
   font-weight: bold;
 }
@@ -453,7 +506,7 @@ body .app-posts-container__post__text-button button {
 .app-admin-post__button-element {
   border: 1px solid #999;
   border-radius: 5px;
-  padding: 3px;
+  padding: 5px;
   text-decoration: none;
   cursor: pointer;
   background: #fefefe;
@@ -535,6 +588,7 @@ body .app-posts-container__post__text-button button {
 .app-profil-container-secondary-achievement__medals__title {
   font-family: GalanoBold;
   font-size: $h5-size;
+  margin-bottom: 20px;
 }
 .app-profil-container-secondary-achievement__comments {
   height: 100px;
@@ -542,6 +596,7 @@ body .app-posts-container__post__text-button button {
 .app-profil-container-secondary-achievement__comments__title {
   font-family: GalanoBold;
   font-size: $h5-size;
+  margin-bottom: 20px;
 }
 .app-unfindable {
   font-family: GalanoBold;

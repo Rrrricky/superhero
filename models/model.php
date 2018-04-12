@@ -189,7 +189,7 @@ class Account extends Model{
 
 
 /** About secondary actions */
-class Actions{
+class Actions extends Model{
   
   // Mail to confirm the registration
   public function mailer($_pseudo, $_email){
@@ -233,6 +233,11 @@ class Actions{
 
     // Sending e-mail
     mail($mail, $subject, $message, $header);
+  }
+
+  public function getId($_pdo){
+    $sql = 'SELECT id FROM posts_tovalidate';
+    $query = $this->query_request($sql, $_pdo);
   }
 }
 
@@ -429,10 +434,26 @@ class Posts extends Model{
     return $getPosts;
   }
 
-  //Delete a post
-  public function delete($_pdo){
-    // $sql = 'DELETE FROM posts_tovalidate ';
-    $deletePost = $this->prepare_request($sql, $_pdo);
-    // $execute = $deletePost->execute($;
+  public function validate($_pdo){
+    $sql = 'INSERT INTO posts (category, title, description, location, date, name, email, phone) 
+            VALUES (:category, :title, :description, :location, :date, :name, :email, :phone)';
+    
+    $prepare = $this->prepare_request($sql, $_pdo);
+        
+    $prepare->bindValue(':category', $category);
+    $prepare->bindValue(':title', $title);
+    $prepare->bindValue(':description', $description);
+    $prepare->bindValue(':location', $location);
+    $prepare->bindValue(':date', $date);
+    $prepare->bindValue(':name', $name);
+    $prepare->bindValue(':email', $email);
+    $prepare->bindValue(':phone', $phone);
+
+    $execute = $prepare->execute();
   }
+  //Delete a post
+  // public function delete($_pdo){
+  //   $sql = 'DELETE FROM posts_tovalidate WHERE pseudo = "papapa"';
+  //   $exec = $_pdo->exec($sql);
+  // }
 }

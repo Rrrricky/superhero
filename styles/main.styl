@@ -34,10 +34,13 @@ body
     &-nav
       display flex
       align-items center
-      &__admin
+      &__logo
         position absolute
-        left 0
-        top 10px
+        width 30px
+        height 30px
+        top 15px
+        left 15px
+        cursor pointer
       &__profil
         display flex
         justify-content space-around
@@ -60,7 +63,7 @@ body
           display none
           left 0
           &__container
-            background $mine-shaft
+            background $dark-purple
             padding $padding-headerItems
             text-decoration none
             &__profil
@@ -82,6 +85,45 @@ body
         transition $transition-color
         &:hover:not(.app-header-nav__profil)
           color $gold
+
+
+
+  .app-home
+    height calc(100vh - 60px)
+    display flex
+    flex-direction column
+    justify-content center
+    align-items center
+    font-family GalanoBold
+    &-title
+      font-size 120px
+      text-transform uppercase
+      color $dark-purple
+      margin-top 30px
+      transform translateY(-20px)
+      text-shadow:5px 3px 3px $mine-shaft
+      &__word
+        color #fefefe
+    &-headline
+      color $mine-shaft
+      font-size 20px
+    &-buttons
+      width 250px
+      display flex
+      justify-content space-between
+      button
+        margin-top 50px
+        padding 10px
+        border 2px solid #555
+        border-radius 5px
+        cursor pointer
+        background #fefefe
+        transition transform .3s 
+        will-change transform
+        &:hover
+          transform translateY(-3px)
+          box-shadow 0px 1px 4px #999
+
 
 
   .app-loginform
@@ -379,11 +421,18 @@ body
 
 
   .app-admin
+    &-title
+      font-family GalanoBold
+      font-size $h1-size
+      margin 10vh 0 0 10vw
+      padding-bottom 60px
     &-post
-      margin-bottom 50px
-      margin-top 10px
-      margin-left 10px
-      &-title
+      width 300px
+      padding 20px
+      background #fefefe
+      border 2px solid $mine-shaft
+      border-radius 5px
+      margin 10px 0 50px 10vw
       &__data
         font-weight bold
       &__button
@@ -392,7 +441,7 @@ body
         &-element
           border 1px solid #999
           border-radius 5px
-          padding 3px
+          padding 5px
           text-decoration none
           cursor pointer
           background #fefefe
@@ -462,11 +511,13 @@ body
               &__title
                 font-family GalanoBold
                 font-size $h5-size
+                margin-bottom 20px
             &__comments
               height 100px
               &__title
                 font-family GalanoBold
                 font-size $h5-size
+                margin-bottom 20px
 
 
   .app-unfindable

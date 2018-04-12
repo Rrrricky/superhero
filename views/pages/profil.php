@@ -38,7 +38,7 @@
               <div class="app-profil-container-secondary-achievement__medals-list-bloc">
                 <div class="app-profil-container-secondary-achievement__medals-list-bloc__medal">    
                   <img src="" alt="">
-                  <span></span>
+                  <span>Aucun bagde</span>
                 </div>
               </div>
             </div> 
@@ -49,7 +49,7 @@
               <div class="app-profil-container-secondary-achievement__comments-list-bloc">
                 <div class="app-profil-container-secondary-achievement__comments-list-bloc__comment">    
                   <img src="" alt="">
-                  <span></span>
+                  <span>Aucun commentaire</span>
                 </div>
               </div>
             </div> 
