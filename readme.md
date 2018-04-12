@@ -1,6 +1,9 @@
-# Semaine intensive 19 
+# Semaine intensive Back-end - Équipe 19, P2021
 
 ## Instructions
+
+Username: admin
+Password: admin
 
 1. Create an account & be connected
 2. Search or post an announce
