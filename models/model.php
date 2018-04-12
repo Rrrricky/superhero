@@ -434,32 +434,39 @@ class Posts extends Model{
     return $getPosts;
   }
 
-  public function validate($_pdo){
-    
-    $all_data = $this->$get_validate($_pdo);
-    echo '<pre>';
-    print_r($all_data);
-    echo '</pre>';
+  // Get the specific post you clicked on
+  public function get_specific_post($_pdo, $__id){
+    $sql = 'SELECT * FROM posts_tovalidate WHERE id = '. $__id;
+    $getPost = $this->query_request($sql, $_pdo);
+    return $getPost;
+  }
 
+  // Validate a post
+  public function validate($_pdo, $_id){
+
+    $specific = $this->get_specific_post($_pdo, $_id);
+ 
     $sql = 'INSERT INTO posts (category, title, description, location, date, name, email, phone) 
             VALUES (:category, :title, :description, :location, :date, :name, :email, :phone)';
     
     $prepare = $this->prepare_request($sql, $_pdo);
-        
-    $prepare->bindValue(':category', $category);
-    $prepare->bindValue(':title', $title);
-    $prepare->bindValue(':description', $description);
-    $prepare->bindValue(':location', $location);
-    $prepare->bindValue(':date', $date);
-    $prepare->bindValue(':name', $name);
-    $prepare->bindValue(':email', $email);
-    $prepare->bindValue(':phone', $phone);
+
+    $prepare->bindValue(':category', $specific[0]->category);
+    $prepare->bindValue(':title', $specific[0]->title);
+    $prepare->bindValue(':description', $specific[0]->description);
+    $prepare->bindValue(':location', $specific[0]->location);
+    $prepare->bindValue(':date', $specific[0]->date);
+    $prepare->bindValue(':name', $specific[0]->name);
+    $prepare->bindValue(':email', $specific[0]->email);
+    $prepare->bindValue(':phone', $specific[0]->phone);
 
     $execute = $prepare->execute();
+    $delete = $this->delete($_pdo, $_id);
   }
+
   //Delete a post
-  // public function delete($_pdo){
-  //   $sql = 'DELETE FROM posts_tovalidate WHERE pseudo = "papapa"';
-  //   $exec = $_pdo->exec($sql);
-  // }
+  public function delete($_pdo, $_id){
+    $sql = 'DELETE FROM posts_tovalidate WHERE id = '.$_id;
+    $exec = $_pdo->exec($sql);
+  }
 }
