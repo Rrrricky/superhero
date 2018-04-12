@@ -7,7 +7,7 @@
       <span>Annonces</span>
     </a>
     <a class="app-header-nav__item" href="about">
-      <span >Qui sommes-nous ?</span>
+      <span >À propos</span>
     </a>
     <?= $header_container ?>   <!-- Specific element -->
   </nav>

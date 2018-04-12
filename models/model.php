@@ -435,6 +435,12 @@ class Posts extends Model{
   }
 
   public function validate($_pdo){
+    
+    $all_data = $this->$get_validate($_pdo);
+    echo '<pre>';
+    print_r($all_data);
+    echo '</pre>';
+
     $sql = 'INSERT INTO posts (category, title, description, location, date, name, email, phone) 
             VALUES (:category, :title, :description, :location, :date, :name, :email, :phone)';
     

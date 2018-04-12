@@ -11,7 +11,7 @@
 
      <!-- If the user is admin -->
      <? if ($_SESSION['id_group'] == 1): ?>
-      <a class="app-header-nav__item app-header-nav__admin" href="admin">
+      <a class="app-header-nav__admin" href="admin">
         <span class="app-header-nav__item">Gestion</span>
       </a>
     <? endif ?>
