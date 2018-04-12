@@ -1,7 +1,9 @@
 <? ob_start() ?>
+
+  <!-- If there is no session -->
   <? if(!isset($_SESSION['id']) AND !isset($_SESSION['pseudo'])): ?>
     <a class="app-header-nav__item" href="login">
-      <span class="app-header-nav__item">Connexion</span>
+      <span class="app-header-nav__item-connexion">Connexion</span>
     </a>
   <? else: ?>
     <div class="app-header-nav__item app-header-nav__profil js-app-header-nav__profil">
@@ -18,6 +20,13 @@
         <img class="app-header-nav__profil__pic_container__img" src="uploads/<?= $_SESSION['picture_name'].'.'.$_SESSION['picture_type'] ?>" alt="user-pic">
       </div>
     </div>
+
+    <!-- If the user is admin -->
+    <? if ($_SESSION['id_group'] == 1): ?>
+      <a class="app-header-nav__item app-header-nav__admin" href="admin">
+        <span class="app-header-nav__item">Gestion</span>
+      </a>
+    <? endif ?>
   <? endif ?>
 <? $header_container = ob_get_clean() ?>
 <? require 'templates/header.php'; ?>

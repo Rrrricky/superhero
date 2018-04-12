@@ -44,6 +44,11 @@ body .app-header-nav {
   display: flex;
   align-items: center;
 }
+body .app-header-nav__admin {
+  position: absolute;
+  left: 0;
+  top: 10px;
+}
 body .app-header-nav__profil {
   display: flex;
   justify-content: space-around;

@@ -20,7 +20,7 @@ abstract class Model{
 class Account extends Model{
 
   public function connected($_pdo){
-    // session_start(); // Useful to limit the access to some pages
+
     // 1. Get username and his status from table users and groups
     // 2. Create an inner join between: id_group from table 'users' and id from table 'groups'
     // $query = $_pdo->query
@@ -38,7 +38,7 @@ class Account extends Model{
     
       $pseudo = $_POST['pseudo']; 
     
-      $sql = ('SELECT id, pseudo, pass, date_inscription, picture_name, picture_type FROM users WHERE pseudo = "'.$pseudo.'"'); // Get the id and password 
+      $sql = ('SELECT id, id_group, pseudo, pass, date_inscription, picture_name, picture_type FROM users WHERE pseudo = "'.$pseudo.'"'); // Get the id and password 
       $result = $this->query_request($sql, $_pdo);
 
 
@@ -62,6 +62,7 @@ class Account extends Model{
         if($isPasswordCorrect){ // If the username and password match
           session_start(); // Give the user a session number 
           $_SESSION['id'] = $result[0]->id;
+          $_SESSION['id_group'] = $result[0]->id_group;
           $_SESSION['pseudo'] = $result[0]->pseudo;
           $_SESSION['inscription'] = $result[0]->date_inscription;
           $_SESSION['picture_name'] = $result[0]->picture_name;
@@ -81,8 +82,7 @@ class Account extends Model{
       return $errorMessages;
     }
   }
-
-
+  
   public function disconnection(){
 
     session_start();
@@ -320,7 +320,7 @@ class Posts extends Model{
 
   // Display all posts
   public function getPosts($_pdo){
-    $sql = 'SELECT category, title, location, date_mission, user_name, date_creation FROM posts';
+    $sql = 'SELECT category, title, location, date, name, date_creation FROM posts';
     $getPosts = $this->query_request($sql, $_pdo);
     return $getPosts;
   }

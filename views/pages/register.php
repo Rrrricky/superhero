@@ -15,7 +15,7 @@
     <input type="text" id="name" placeholder="Super-Me" name="pseudo" value="<?= $_POST['pseudo'] ?>">
     <label for="mail">E-mail</label>
     <input type="mail" id="mail" placeholder="eric.eric@gmail.com" name="email" value="<?= $_POST['email'] ?>">
-    <label for="password">Mot de passe</label>
+    <label for="password">Mot de passe (5 caractères min.)</label>
     <input type="password" id="password" name="pass" value="">
     <label for="password_confirm">Confirmation du mot de passe</label>
     <input type="password" id="password_confirm" name="pass_confirm" value="">

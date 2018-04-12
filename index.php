@@ -31,6 +31,9 @@ isset($_GET['q']) ? $q = $_GET['q'] : $q = '';
   else if($q === 'create'){
       $page = 'create';
   }
+  else if($q === 'admin'){
+      $page = 'admin';
+  }
   else{
       $page = '404';
   }

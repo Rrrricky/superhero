@@ -37,7 +37,7 @@
             <span class="app-posts-container__post__text__subject-title"><?= $getPosts[$i]->title; ?></span>
             <span class="app-posts-container__post__text__subject-location">- <?= $getPosts[$i]->location; ?></span>
           </div>
-          <div class="app-posts-container__post__text__availability"><?= $getPosts[$i]->date_mission; ?></div>
+          <div class="app-posts-container__post__text__availability"><?= $getPosts[$i]->date; ?></div>
           <div class="app-posts-container__post__text__creation"><?= $getPosts[$i]->date_creation; ?></div>
           <a class="app-posts-container__post__text-button" href="#">
             <button>Secourir</button>
