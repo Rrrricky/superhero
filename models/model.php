@@ -421,4 +421,18 @@ class Posts extends Model{
       return $errorMessages;
     }
   }
+
+  // Get unvalidate posts (if you're admin)
+  public function get_unvalidate($_pdo){
+    $sql = 'SELECT * FROM posts_tovalidate';
+    $getPosts = $this->query_request($sql, $_pdo);
+    return $getPosts;
+  }
+
+  //Delete a post
+  public function delete($_pdo){
+    // $sql = 'DELETE FROM posts_tovalidate ';
+    $deletePost = $this->prepare_request($sql, $_pdo);
+    // $execute = $deletePost->execute($;
+  }
 }
