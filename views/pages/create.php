@@ -10,12 +10,12 @@
   <form class="app-postcreation" action="#" method="post">
     <h1 class="app-postcreation-title">Déposer une annonce</h1>
     <label for="category">Catégorie</label>
-    <select id="category" name="category" value="">
+    <select id="category" name="category">
       <option value="bricolage">Bricolage</option>
-      <option value="bricolage">Jardinage</option>
+      <option value="jardinage">Jardinage</option>
       <option value="nettoyage">Nettoyage</option>
-      <option value="nettoyage">Réparation technique</option>
-      <option value="nettoyage">Garde</option>
+      <option value="reparation">Réparation technique</option>
+      <option value="garde">Garde</option>
     </select>
     <label class="app-postcreation-inputtitle" for="title">Titre d'annonce</label>
     <input type="text" id="title" name="title" value="<?= $_POST['title'] ?>" >

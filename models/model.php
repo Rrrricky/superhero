@@ -393,7 +393,7 @@ class Posts extends Model{
       if(empty($errorMessages)){  
         $sql = 'INSERT INTO posts_toValidate (category, title, description, location, date, name, email, phone) VALUES (:category, :title, :description, :location, :date, :name, :email, :phone)';
         $prepare = $this->prepare_request($sql, $_pdo);
-        
+
         $prepare->bindValue(':category', $category);
         $prepare->bindValue(':title', $title);
         $prepare->bindValue(':description', $description);
@@ -414,7 +414,6 @@ class Posts extends Model{
         $_POST['email']='';
         $_POST['phone']='';
       }
-
       $errorMessages[] = '';
       return $errorMessages;
 
@@ -466,10 +465,6 @@ class Posts extends Model{
     $prepare->bindValue(':name', $specific[0]->name);
     $prepare->bindValue(':email', $specific[0]->email);
     $prepare->bindValue(':phone', $specific[0]->phone);
-
-echo '<pre>';
-print_r();
-echo '</pre>';
 
     $execute = $prepare->execute();
     $delete = $this->delete($_pdo, $_id);

@@ -29,7 +29,7 @@
     <? for($i=0; $i<count($getPosts); $i++): ?>
       <div class="app-posts-container__post">
         <div class="app-posts-container__post__visual">
-          <img class="app-posts-container__post__visual-element" src="src/images/<?= $getPosts[$i]->category.'.png' ?>" alt="category-pic">
+          <img class="app-posts-container__post__visual-element" src="src/images/<?= strtolower($getPosts[$i]->category.'.png') ?>" alt="category-pic">
         </div>
         <div class="app-posts-container__post__text">
           <div class="app-posts-container__post__text__category"><?= $getPosts[$i]->category; ?></div>
@@ -46,16 +46,6 @@
       </div>
     <? endfor ?>
     </div>
-    <!-- <div class="app-posts-container">
-      <div class="app-posts-container__post"></div>
-      <div class="app-posts-container__post"></div>
-      <div class="app-posts-container__post"></div>
-    </div>
-    <div class="app-posts-container">
-      <div class="app-posts-container__post"></div>
-      <div class="app-posts-container__post"></div>
-      <div class="app-posts-container__post"></div>
-    </div> -->
   <main>  
 <? $container = ob_get_clean() ?>
 <? require 'templates/template.php'; ?>
