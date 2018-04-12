@@ -257,6 +257,13 @@ class Profil extends Model{
       $size_max = 1000000;
       $upload   = is_uploaded_file($_FILES['profil']['tmp_name']);
 
+      if(empty($_FILES['profil']['name'])){
+        $errorMessages[] = 'Empty';
+        return $errorMessages;
+      }
+
+  
+
       // Check corrupted file
       if (!isset($_FILES['profil']) AND $_FILES['profil']['error'] != 0){ 
         $errorMessages[] = "Problème de transfert";
@@ -427,14 +434,14 @@ class Posts extends Model{
     }
   }
 
-  // Get unvalidate posts (if you're admin)
+  // Get unvalidated posts
   public function get_unvalidate($_pdo){
     $sql = 'SELECT * FROM posts_tovalidate';
     $getPosts = $this->query_request($sql, $_pdo);
     return $getPosts;
   }
 
-  // Get the specific post you clicked on
+  // Get the specific unvalidated post you clicked on
   public function get_specific_post($_pdo, $__id){
     $sql = 'SELECT * FROM posts_tovalidate WHERE id = '. $__id;
     $getPost = $this->query_request($sql, $_pdo);
@@ -459,6 +466,10 @@ class Posts extends Model{
     $prepare->bindValue(':name', $specific[0]->name);
     $prepare->bindValue(':email', $specific[0]->email);
     $prepare->bindValue(':phone', $specific[0]->phone);
+
+echo '<pre>';
+print_r();
+echo '</pre>';
 
     $execute = $prepare->execute();
     $delete = $this->delete($_pdo, $_id);

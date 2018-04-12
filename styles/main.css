@@ -360,9 +360,10 @@ body .app-posts-container__post__visual {
   width: 70px;
   height: 70px;
   margin-right: 25px;
-  border: 1px solid #333;
-  border-radius: 100%;
-  overflow: hidden;
+}
+body .app-posts-container__post__visual-element {
+  width: 70px;
+  height: 70px;
 }
 body .app-posts-container__post__text {
   width: 200px;
