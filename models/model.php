@@ -166,9 +166,9 @@ class Account extends Model{
         function callMailer($_pseudo, $_email){
           $actions = new Actions();
           $mail = $actions->mailer($_pseudo, $_email); // Trigger the mailer function of the other class
-          echo $mail;
         }
         callMailer($pseudo, $email);
+        header('Location: registrated');
         $errorMessages[] = '';
       }
     }else{
@@ -415,6 +415,7 @@ class Posts extends Model{
         $_POST['phone']='';
       }
       $errorMessages[] = '';
+      header('Location: post_sended');
       return $errorMessages;
 
     // Form not sended

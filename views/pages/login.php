@@ -3,11 +3,15 @@
 <? $errorMessages = $account->connection($pdo); ?>
 <? $title = 'Login'; ?>
 <? ob_start() ?>
+
+  <!-- Display errors -->
   <? if(isset($errorMessages)):?>
     <? foreach($errorMessages as $message): ?>
       <p class="app-logerror"><?= $message ?></p>
     <? endforeach ?>
   <? endif ?>
+
+  <!-- Form -->
   <form class="app-loginform" action="#" method="post">
     <h1 class="app-loginform-title">Se connecter</h1>
     <label for="pseudo">Pseudo</label>

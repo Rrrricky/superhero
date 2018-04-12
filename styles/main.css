@@ -218,6 +218,18 @@ body .app-subform-register {
   margin-top: 50px;
   font-size: 15px;
 }
+body .app-registrated {
+  width: 75vw;
+  font-family: GalanoBold;
+  font-size: 20px;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 30vh;
+}
+body .app-registrated p:nth-child(1) {
+  font-size: 40px;
+  margin-bottom: 30px;
+}
 body .app-loader {
   display: flex;
   align-items: center;
@@ -488,6 +500,9 @@ body .app-posts-container__post__text-button button {
   font-size: 55px;
   margin: 10vh 0 0 10vw;
   padding-bottom: 60px;
+}
+.app-admin-none {
+  margin: 10vh 0 0 10vw;
 }
 .app-admin-post {
   width: 300px;

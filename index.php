@@ -27,6 +27,9 @@ endforeach;
   else if($q === 'register'){
       $page = 'register';
   }
+  else if($q === 'registrated'){
+      $page = 'registrated';
+  }
   else if($q === 'login'){
       $page = 'login';
   }
@@ -45,6 +48,9 @@ endforeach;
   }
   else if($q === 'create'){
       $page = 'create';
+  }
+  else if($q === 'post_sended'){
+      $page = 'post_sended';
   }
   else if($q === 'admin'){
       $page = 'admin';
