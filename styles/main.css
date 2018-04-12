@@ -175,7 +175,7 @@ body .app-loader {
   height: 100%;
   width: 100%;
   position: fixed;
-  background: #fefefe;
+  background: #ffd000;
   top: 0;
   left: 0;
   z-index: 800;
@@ -377,9 +377,18 @@ body .app-posts-container__post__text-button button {
   font-size: 10px;
   color: #422973;
 }
+.app-postcreation textarea {
+  height: 80px;
+  font-size: 12px;
+}
 .app-postcreation input {
-  width: 100%;
   height: 40px;
+  display: flex;
+  align-items: center;
+}
+.app-postcreation input,
+.app-postcreation textarea {
+  width: 100%;
   margin: 10px 0 20px 0;
   display: block;
   background: #eee;

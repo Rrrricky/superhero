@@ -228,7 +228,7 @@ class Actions{
 class Profil extends Model{
 
   public function transfer_picture($_pdo){
-
+    
     // Set variables
     if(!empty($_FILES)){
       $upload   = false;
@@ -309,5 +309,100 @@ class Posts extends Model{
     $sql = 'SELECT category, title, location, date_mission, user_name, date_creation FROM posts';
     $getPosts = $this->query_request($sql, $_pdo);
     return $getPosts;
+  }
+
+  // Send a post
+  public function sendPost($_pdo){
+  
+    // Form sended
+    if(!empty($_POST)){
+      $category = htmlspecialchars($_POST['category']);
+      $title = htmlspecialchars($_POST['title']);
+      $description = htmlspecialchars($_POST['description']);
+      $location = htmlspecialchars($_POST['location']);
+      $date = htmlspecialchars($_POST['date']);
+      $name = htmlspecialchars($_POST['name']);
+      $email = htmlspecialchars($_POST['email']);
+      $phone = htmlspecialchars($_POST['phone']);
+
+      // Check errors 
+      if(empty($category)){
+        $errorMessages[] = 'Missing category';
+      }
+      if(empty($title)){
+        $errorMessages[] = 'Missing title';
+      }
+      if(empty($description)){
+        $errorMessages[] = 'Missing description';
+      }
+      if(empty($location)){
+        $errorMessages[] = 'Missing location';
+      }
+      if(empty($date)){
+        $errorMessages[] = 'Missing location';
+      }
+      if(empty($name)){
+        $errorMessages[] = 'Missing name';
+      }
+      if(empty($email)){
+        $errorMessages[] = 'Missing email';
+      }
+      if(strlen($title)>16){
+        $errorMessages[] = 'Max 16 chars for the username';
+      }
+      if(strlen($description)>300){
+        $errorMessages[] = 'Max 300 chars for the username';
+      }
+      if(strlen($description)<4){
+        $errorMessages[] = 'Min 4 chars for the title';
+      }
+      if(strlen($description)<5){
+        $errorMessages[] = 'Min 5 chars for the description';
+      }
+      if(strpos($email, '@') != true){
+        $errorMessages[] = 'Need a valid email';
+      }
+      // If there is no error
+      if(empty($errorMessages)){  
+        $sql = 'INSERT INTO posts_toValidate (category, title, description, location, date, name, email, phone) VALUES (:category, :title, :description, :location, :date, :name, :email, :phone)';
+        $prepare = $this->prepare_request($sql, $_pdo);
+        
+        $prepare->bindValue(':category', $category);
+        $prepare->bindValue(':title', $title);
+        $prepare->bindValue(':description', $description);
+        $prepare->bindValue(':location', $location);
+        $prepare->bindValue(':date', $date);
+        $prepare->bindValue(':name', $name);
+        $prepare->bindValue(':email', $email);
+        $prepare->bindValue(':phone', $phone);
+
+        $execute = $prepare->execute();
+        $_POST['category']='';
+        $_POST['title']='';
+        $_POST['description']='';
+        $_POST['location']='';
+        $_POST['date']='';
+        $_POST['name']='';
+        $_POST['email']='';
+        $_POST['phone']='';
+
+      }
+      $errorMessages[] = '';
+      return $errorMessages;
+
+    // Form not sended
+    }else{
+      $_POST['category']='';
+      $_POST['title']='';
+      $_POST['description']='';
+      $_POST['location']='';
+      $_POST['date']='';
+      $_POST['name']='';
+      $_POST['email']='';
+      $_POST['phone']='';
+
+      $errorMessages[] = '';
+      return $errorMessages;
+    }
   }
 }

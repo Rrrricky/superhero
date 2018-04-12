@@ -144,7 +144,7 @@ body
     height 100%
     width 100%
     position fixed
-    background #fefefe
+    background $gold
     top 0
     left 0
     z-index 800
@@ -325,9 +325,15 @@ body
     label
       font-size 10px
       color $dark-purple
-    input
-      width 100%
+    textarea
+      height 80px
+      font-size 12px
+    input 
       height 40px
+      display flex
+      align-items center
+    input, textarea
+      width 100%
       margin 10px 0 20px 0
       display block
       background #eee
