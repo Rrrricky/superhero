@@ -18,9 +18,9 @@ ___
 - ES6 (POO)
 
 
-##API
+## API
 - Google Maps
-- Chucks Norris Fact
+- Chucks Norris Facts
 
 ## Features
 - Automated email (registration and database connection)
