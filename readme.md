@@ -5,6 +5,7 @@
 - Username: admin
 - Password: admin
 
+
 1. Create an account & be connected
 2. Search or post an announce
 3. Delete or accept it if you're an adminsitrator
@@ -16,12 +17,18 @@ ___
 - Stylus (BEM)
 - ES6 (POO)
 
+
+##API
+- Google Maps
+- Chucks Norris Fact
+
 ## Features
 - Automated email (registration and database connection)
-- URL Rewriting
+- HTTPS and URL Rewriting
 - User sessions
 - Update profil picture
 - Create announces 
+- Accept or refuse announce if you're admin
 
 ## Future features
 - Filters
