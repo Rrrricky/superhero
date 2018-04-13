@@ -13,14 +13,17 @@ $h1-size = 55px;
 $h2-size = 45px;
 $h3-size = 37px;
 $h4-size = 30px;
+$h5-size = 25px;
+
 
 html, body 
   font-family Helvetica
   color $mine-shaft
-  background-size cover
 
 body
   background $gold
+
+
   .app-header 
     width 100%
     height $header-height
@@ -282,6 +285,7 @@ body
       border-radius 10px
       padding 10px
     &__filter
+      display none !important
       width 80vw
       margin 40px auto
       padding 20px
@@ -313,7 +317,7 @@ body
       display flex
       flex-wrap wrap
       justify-content space-between
-      margin 0 auto
+      margin 80px auto
       &__post
         width 300px
         height 200px
@@ -366,6 +370,67 @@ body
               color #fefefe
               font-weight bold
               cursor pointer
+
+
+  .app-post
+    width 100vw
+    display flex
+    justify-content center
+    margin-top 50px
+    margin-bottom 30px
+    &-container
+      position relative
+      width 80vw
+      background #fefefe
+      border-radius 8px   
+      &-content
+        margin 10vh 10vw 10vh 10vw
+        &__category
+          font-family SourceSansPro
+          font-weight bold
+          color grey
+          margin-bottom 10px
+        &__title
+          font-family GalanoBold
+          font-size $h1-size
+          padding-bottom 20px
+          @media (max-width: 500px)
+            font-size $h3-size
+        &__location
+          margin-bottom 2px
+        &__date
+          margin-bottom 10px
+        &__description
+          font-size 14px
+          margin-top 50px
+          margin-bottom 10px
+          font-style italic
+        &__name
+          font-size 14px
+          margin-bottom 20px
+        &-contact
+          border-top 1px solid $mine-shaft
+          margin-top 40px
+          padding-top 20px
+          h3
+            font-weight bold
+            font-size $h5-size
+            margin-bottom 20px
+          &__email
+            margin-bottom 5px
+            font-size 14px
+          &__phone
+            margin-bottom 20px
+            font-size 14px
+        &__date_creation
+          position absolute
+          bottom 10px
+          right 30px
+          font-size 12px
+          font-style italic
+          color grey
+          
+
 
  .app-postcreation
     width 400px

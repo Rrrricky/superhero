@@ -2,8 +2,8 @@
 
 ## Instructions
 
-Username: admin
-Password: admin
+- Username: admin
+- Password: admin
 
 1. Create an account & be connected
 2. Search or post an announce
@@ -24,6 +24,7 @@ ___
 - Create announces 
 
 ## Future features
+- Filters
 - Mini-chat
 - Cookies
 - Password forgotten

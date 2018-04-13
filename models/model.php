@@ -16,6 +16,7 @@ abstract class Model{
 
 
 
+
 /** About account pages */
 class Account extends Model{
 
@@ -188,6 +189,25 @@ class Account extends Model{
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /** About secondary actions */
 class Actions extends Model{
   
@@ -236,10 +256,20 @@ class Actions extends Model{
   }
 
   public function getId($_pdo){
-    $sql = 'SELECT id FROM posts_tovalidate';
+    $sql = 'SELECT id FROM poststovalidate';
     $query = $this->query_request($sql, $_pdo);
   }
 }
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -327,12 +357,25 @@ class Profil extends Model{
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 /** About the posts page */
 class Posts extends Model{
 
   // Display all posts
   public function getPosts($_pdo){
-    $sql = 'SELECT category, title, location, date, name, date_creation FROM posts';
+    $sql = 'SELECT id, category, title, location, date, name, date_creation FROM posts';
     $getPosts = $this->query_request($sql, $_pdo);
     return $getPosts;
   }
@@ -391,7 +434,7 @@ class Posts extends Model{
 
       // If there is no error
       if(empty($errorMessages)){  
-        $sql = 'INSERT INTO posts_toValidate (category, title, description, location, date, name, email, phone) VALUES (:category, :title, :description, :location, :date, :name, :email, :phone)';
+        $sql = 'INSERT INTO poststovalidate (category, title, description, location, date, name, email, phone) VALUES (:category, :title, :description, :location, :date, :name, :email, :phone)';
         $prepare = $this->prepare_request($sql, $_pdo);
 
         $prepare->bindValue(':category', $category);
@@ -413,9 +456,10 @@ class Posts extends Model{
         $_POST['name']='';
         $_POST['email']='';
         $_POST['phone']='';
+
+        header('Location: post_sended');
       }
       $errorMessages[] = '';
-      header('Location: post_sended');
       return $errorMessages;
 
     // Form not sended
@@ -436,17 +480,27 @@ class Posts extends Model{
 
   // Get unvalidated posts
   public function get_unvalidate($_pdo){
-    $sql = 'SELECT * FROM posts_tovalidate';
+    $sql = 'SELECT * FROM poststovalidate';
     $getPosts = $this->query_request($sql, $_pdo);
     return $getPosts;
   }
 
   // Get the specific unvalidated post you clicked on
   public function get_specific_post($_pdo, $__id){
-    $sql = 'SELECT * FROM posts_tovalidate WHERE id = '. $__id;
+    $sql = 'SELECT * FROM poststovalidate WHERE id = '. $__id;
     $getPost = $this->query_request($sql, $_pdo);
     return $getPost;
   }
+
+
+  // Get the specific validated post you clicked on
+  public function get_validate_post($_pdo, $__id){
+    $sql = 'SELECT * FROM posts WHERE id = '. $__id;
+    $getPost = $this->query_request($sql, $_pdo);
+    return $getPost;
+  }
+
+
 
   // Validate a post
   public function validate($_pdo, $_id){
@@ -473,7 +527,7 @@ class Posts extends Model{
 
   //Delete a post
   public function delete($_pdo, $_id){
-    $sql = 'DELETE FROM posts_tovalidate WHERE id = '.$_id;
+    $sql = 'DELETE FROM poststovalidate WHERE id = '.$_id;
     $exec = $_pdo->exec($sql);
   }
 }

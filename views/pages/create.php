@@ -17,9 +17,9 @@
       <option value="reparation">Réparation technique</option>
       <option value="garde">Garde</option>
     </select>
-    <label class="app-postcreation-inputtitle" for="title">Titre d'annonce</label>
+    <label class="app-postcreation-inputtitle" for="title">Titre d'annonce (Min. 5 caractères)</label>
     <input type="text" id="title" name="title" value="<?= $_POST['title'] ?>" >
-    <label for="description">Texte d'annonce</label>
+    <label for="description">Texte d'annonce (Min. 4 caractères)</label>
     <textarea rows="10" type="text" id="description" name="description" value="<?= $_POST['description'] ?>"></textarea>
     <label for="location">Localisation</label>
     <input type="text" id="location" name="location" value="<?= $_POST['location'] ?>">

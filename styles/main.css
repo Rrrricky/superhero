@@ -25,7 +25,6 @@ html,
 body {
   font-family: Helvetica;
   color: #333;
-  background-size: cover;
 }
 body {
   background: #ffd000;
@@ -345,6 +344,7 @@ body .app-posts-create {
   padding: 10px;
 }
 body .app-posts__filter {
+  display: none !important;
   width: 80vw;
   margin: 40px auto;
   padding: 20px;
@@ -380,7 +380,7 @@ body .app-posts-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: 0 auto;
+  margin: 80px auto;
 }
 body .app-posts-container__post {
   width: 300px;
@@ -443,6 +443,80 @@ body .app-posts-container__post__text-button button {
   color: #fefefe;
   font-weight: bold;
   cursor: pointer;
+}
+body .app-post {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+body .app-post-container {
+  position: relative;
+  width: 80vw;
+  background: #fefefe;
+  border-radius: 8px;
+}
+body .app-post-container-content {
+  margin: 10vh 10vw 10vh 10vw;
+}
+body .app-post-container-content__category {
+  font-family: SourceSansPro;
+  font-weight: bold;
+  color: #808080;
+  margin-bottom: 10px;
+}
+body .app-post-container-content__title {
+  font-family: GalanoBold;
+  font-size: 55px;
+  padding-bottom: 20px;
+}
+@media (max-width: 500px) {
+  body .app-post-container-content__title {
+    font-size: 37px;
+  }
+}
+body .app-post-container-content__location {
+  margin-bottom: 2px;
+}
+body .app-post-container-content__date {
+  margin-bottom: 10px;
+}
+body .app-post-container-content__description {
+  font-size: 14px;
+  margin-top: 50px;
+  margin-bottom: 10px;
+  font-style: italic;
+}
+body .app-post-container-content__name {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+body .app-post-container-content-contact {
+  border-top: 1px solid #333;
+  margin-top: 40px;
+  padding-top: 20px;
+}
+body .app-post-container-content-contact h3 {
+  font-weight: bold;
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+body .app-post-container-content-contact__email {
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+body .app-post-container-content-contact__phone {
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+body .app-post-container-content__date_creation {
+  position: absolute;
+  bottom: 10px;
+  right: 30px;
+  font-size: 12px;
+  font-style: italic;
+  color: #808080;
 }
 .app-postcreation {
   width: 400px;
@@ -629,7 +703,7 @@ body .app-posts-container__post__text-button button {
 }
 .app-profil-container-secondary-achievement__medals__title {
   font-family: GalanoBold;
-  font-size: $h5-size;
+  font-size: 25px;
   margin-bottom: 20px;
 }
 .app-profil-container-secondary-achievement__comments {
@@ -637,7 +711,7 @@ body .app-posts-container__post__text-button button {
 }
 .app-profil-container-secondary-achievement__comments__title {
   font-family: GalanoBold;
-  font-size: $h5-size;
+  font-size: 25px;
   margin-bottom: 20px;
 }
 .app-unfindable {

@@ -1,12 +1,12 @@
 <? session_start() ?>
 <? require 'models/model.php'; ?>
-<? $posts = new Posts() ?>
+<? $posts = new Posts ?>
 <? $get_unvalidate = $posts->get_unvalidate($pdo) ?>
 <? $title = 'Gestion'; ?>
 <? ob_start() ?>
 <container class="app-admin">
   <h1 class="app-admin-title">Validation d'annonces</h1>
-
+  
   <!-- Posts to accept or not -->
   <? if(!empty($get_unvalidate)): ?>
     <? for($i=0; $i<count($get_unvalidate); $i++): ?>

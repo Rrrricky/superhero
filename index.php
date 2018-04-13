@@ -9,7 +9,7 @@ isset($_GET['q']) ? $q = $_GET['q'] : $q = '';
 isset($_GET['id']) ? $id = $_GET['id'] : $id = '';
 
 
-$sql = 'SELECT id FROM posts_tovalidate';
+$sql = 'SELECT id FROM poststovalidate';
 $query = $pdo->query($sql);
 $ids = $query->fetchAll();
 
@@ -51,6 +51,9 @@ endforeach;
   }
   else if($q === 'post_sended'){
       $page = 'post_sended';
+  }
+  else if($q === 'post'){
+      $page = 'post';
   }
   else if($q === 'admin'){
       $page = 'admin';
