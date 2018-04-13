@@ -1,4 +1,3 @@
-<? session_start() ?>
 <? require 'models/model.php'; ?>
 <? $account = new Account ?>
 <? $errorMessages = $account->connection($pdo); ?>
@@ -28,7 +27,7 @@
   </form>
 <!-- If the user is connected -->
 <? else: ?>
-  <? header('Location: 404'); ?>
+  <container></container>
 <? endif ?>
 <? $container = ob_get_clean() ?>
 <? require 'templates/template.php'; ?>

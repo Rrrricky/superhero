@@ -28,6 +28,8 @@ body {
 }
 body {
   background: #ffd000;
+  background-image: url("../src/images/background.jpg");
+  background-size: cover;
 }
 body .app-header {
   width: 100%;
@@ -650,9 +652,11 @@ body .app-post-container-content__date_creation {
   display: flex;
   margin-top: 80px;
   border-bottom: 1px solid #999;
+  border-radius: 8px;
   box-shadow: 10px 10px 30px #999;
   margin: 10vh 0 0 5vw;
   padding: 40px 60px;
+  background: #fefefe;
 }
 .app-profil-container-personnal {
   width: 40vw;
