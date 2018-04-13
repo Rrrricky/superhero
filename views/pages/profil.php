@@ -2,6 +2,8 @@
 <? require 'models/model.php'; ?>
 <? $profil = new Profil ?>
 <? $errorMessages = $profil->transfer_picture($pdo) ?>
+<? $actions = new Actions ?>
+<? $result = $actions->api() ?>
 <? $title = 'Profil'; ?>
 <? ob_start() ?>
 
@@ -57,6 +59,10 @@
               </div>
             </div> 
           </div>
+        </div>
+        <!-- API -->
+        <div class="app-profil-container-secondary-api">
+          <?= str_replace('Chuck Norris', $_SESSION['pseudo'], $result[rand(0, 9)]->fact) ?>
         </div>
       </div>
     </container>

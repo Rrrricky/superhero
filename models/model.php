@@ -259,6 +259,16 @@ class Actions extends Model{
     $sql = 'SELECT id FROM poststovalidate';
     $query = $this->query_request($sql, $_pdo);
   }
+
+  public function api(){
+    $curl = curl_init();
+    curl_setopt($curl, CURLOPT_URL, 'https://www.chucknorrisfacts.fr/api/get');
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
+    $result = curl_exec($curl);
+    curl_close($curl);
+    return $result = json_decode($result);
+  }
 }
 
 

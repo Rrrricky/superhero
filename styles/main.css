@@ -723,6 +723,10 @@ body .app-post-container-content__date_creation {
   font-size: 25px;
   margin-bottom: 20px;
 }
+.app-profil-container-secondary-api {
+  font-style: italic;
+  font-size: 15px;
+}
 .app-unfindable {
   font-family: GalanoBold;
   position: absolute;
