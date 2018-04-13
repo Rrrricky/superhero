@@ -1,3 +1,4 @@
+<? session_start() ?>
 <? $title = '404'; ?>
 <? ob_start() ?>
   <container class="app-unfindable">

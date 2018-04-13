@@ -4,9 +4,11 @@
 <? $get_unvalidate = $posts->get_unvalidate($pdo) ?>
 <? $title = 'Gestion'; ?>
 <? ob_start() ?>
+<!-- If the user is admin -->
+<? if ($_SESSION['id_group'] == 1): ?>
 <container class="app-admin">
   <h1 class="app-admin-title">Validation d'annonces</h1>
-  
+
   <!-- Posts to accept or not -->
   <? if(!empty($get_unvalidate)): ?>
     <? for($i=0; $i<count($get_unvalidate); $i++): ?>
@@ -31,6 +33,11 @@
     <div class="app-admin-none">Aucune annonce à valider...</div>
   <? endif ?>
 </container>
+
+<!-- If the user is not an admin -->
+<? else: ?>
+  <? header('Location: 404'); ?>
+<? endif ?>
 <? $container = ob_get_clean() ?>
 <? require 'templates/template.php'; ?>
 <? require 'views/partials/footer.php'; ?>

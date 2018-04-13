@@ -4,6 +4,9 @@
 <? $errorMessages = $posts->sendPost($pdo) ?>
 <? $title = 'Mon annonce'; ?>
 <? ob_start() ?>
+
+<!-- If there is a session (user connected) -->
+<? if(isset($_SESSION['id']) AND isset($_SESSION['pseudo'])): ?>
   <? foreach($errorMessages as $messages): ?>
   <p class="app-logerror"><?= $messages ?></p>
   <? endforeach ?>
@@ -34,6 +37,10 @@
     <button class="app-postcreation-button" type="submit" value="submit">Poster</button>
     <small class="app-postcreation-indication">Chaque annonce est soumise à une validation avant d’être postée.</small>
   </form>
+<!-- If user is not connected -->
+<? else: ?>
+  <? header('Location: 404'); ?>
+<? endif ?>
 <? $container = ob_get_clean() ?>
 <? require 'templates/template.php'; ?>
 <? require 'views/partials/footer.php'; ?>

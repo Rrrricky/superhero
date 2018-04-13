@@ -4,6 +4,9 @@
 <? $errorMessages = $profil->transfer_picture($pdo) ?>
 <? $title = 'Profil'; ?>
 <? ob_start() ?>
+
+<!-- If the user is connected -->
+<? if(isset($_SESSION['id']) AND isset($_SESSION['pseudo'])): ?>
   <main class="app-profil">
     <h1 class="app-profil-title">Profil</h1>
     <container class="app-profil-container">
@@ -58,6 +61,9 @@
       </div>
     </container>
   <main>  
+<? else: ?>
+  <? header('Location: 404'); ?>
+<? endif ?>
 <? $container = ob_get_clean() ?>
 <? require 'templates/template.php'; ?>
 <? require 'views/partials/footer.php'; ?>

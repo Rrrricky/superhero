@@ -1,9 +1,11 @@
+<? session_start() ?>
 <? require 'models/model.php'; ?>
 <? $account = new Account ?>
 <? $errorMessages = $account->connection($pdo); ?>
 <? $title = 'Login'; ?>
 <? ob_start() ?>
-
+<!-- If the user is not connected -->
+<? if(!isset($_SESSION['id']) AND !isset($_SESSION['pseudo'])): ?>
   <!-- Display errors -->
   <? if(isset($errorMessages)):?>
     <? foreach($errorMessages as $message): ?>
@@ -24,6 +26,10 @@
       <a href="register">Je m'inscris</a>
     </div>
   </form>
+<!-- If the user is connected -->
+<? else: ?>
+  <? header('Location: 404'); ?>
+<? endif ?>
 <? $container = ob_get_clean() ?>
 <? require 'templates/template.php'; ?>
 <? require 'views/partials/footer.php'; ?>
