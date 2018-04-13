@@ -457,6 +457,11 @@ body .app-post-container {
   background: #fefefe;
   border-radius: 8px;
 }
+body .app-post-container-map {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 90px;
+}
 body .app-post-container-content {
   margin: 10vh 10vw 10vh 10vw;
 }

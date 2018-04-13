@@ -20,6 +20,9 @@
         </div>
         <div class="app-post-container-content__date_creation">Date de publication : <?= date("d/m/Y", strtotime($getPost[0]->date_creation)) ?></div>
       </div>
+      <div class="app-post-container-map">
+        <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCHQm1LblH9afG7IqHLnqLBi-a1ch7mRu0&q=`<?= $getPost[0]->location ?>`" frameborder="0"></iframe>
+      </div>
     </div>
   <main>  
 <? $container = ob_get_clean() ?>
