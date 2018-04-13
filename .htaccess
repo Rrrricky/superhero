@@ -7,4 +7,4 @@ RewriteCond %{SCRIPT_FILENAME} !-f
 RewriteRule ^(.*)$ ./index.php?q=$1 [QSA]
 
 RewriteCond %{SERVER_PORT} 80
-RewriteRule ^(.*)$ https://www.ericdufreche.com/$1 [R,L]
+RewriteRule ^(.*)$ https://www.ericdufreche.com/superhero/$1 [R,L]

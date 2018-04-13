@@ -260,9 +260,9 @@ class Actions extends Model{
     $query = $this->query_request($sql, $_pdo);
   }
 
-  public function api(){
+  public function api($link){
     $curl = curl_init();
-    curl_setopt($curl, CURLOPT_URL, 'https://www.chucknorrisfacts.fr/api/get');
+    curl_setopt($curl, CURLOPT_URL, $link);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
     $result = curl_exec($curl);
@@ -517,8 +517,8 @@ class Posts extends Model{
 
     $specific = $this->get_specific_post($_pdo, $_id);
  
-    $sql = 'INSERT INTO posts (category, title, description, location, date, name, email, phone) 
-            VALUES (:category, :title, :description, :location, :date, :name, :email, :phone)';
+    $sql = 'INSERT INTO posts (category, title, description, location, date, name, email, phone, date_creation) 
+            VALUES (:category, :title, :description, :location, :date, :name, :email, :phone, CURDATE())';
     
     $prepare = $this->prepare_request($sql, $_pdo);
 

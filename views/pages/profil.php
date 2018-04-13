@@ -3,7 +3,7 @@
 <? $profil = new Profil ?>
 <? $errorMessages = $profil->transfer_picture($pdo) ?>
 <? $actions = new Actions ?>
-<? $result = $actions->api() ?>
+<? $result = $actions->api('https://api.chucknorris.io/jokes/random') ?>
 <? $title = 'Profil'; ?>
 <? ob_start() ?>
 
@@ -62,7 +62,7 @@
         </div>
         <!-- API -->
         <div class="app-profil-container-secondary-api">
-          <?= str_replace('Chuck Norris', $_SESSION['pseudo'], $result[rand(0, 9)]->fact) ?>
+          <?= str_replace('Chuck Norris', $_SESSION['pseudo'], $result->value) ?>
         </div>
       </div>
     </container>
