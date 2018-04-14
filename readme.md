@@ -5,7 +5,6 @@
 - Username: admin
 - Password: admin
 
-
 1. Create an account & be connected
 2. Search or post an announce
 3. Delete or accept it if you're an adminsitrator
@@ -17,25 +16,28 @@ ___
 - Stylus (BEM)
 - ES6 (POO)
 
-
-## API
-- Google Maps
-- Chucks Norris Facts
-
 ## Features
 - Automated email (registration and database connection)
-- HTTPS and URL Rewriting
+- URL Rewriting
 - User sessions
 - Update profil picture
 - Create announces 
-- Accept or refuse announce if you're admin
 
 ## Future features
-- Filters
 - Mini-chat
 - Cookies
 - Password forgotten
 - Personnal information uptadable by the user
+- Filters
+- Responsive
+- Medals and comments
+- Visual on the readme
+- Mailbox API to check valid mails
+- More fragmentation of the different files
+- Reduce the 2Mo picture...
+- Handle images with https://www.filestack.com/
+- Use issues on GitHub sur github
+
 
 ## Thanks
 - Bruno Simon

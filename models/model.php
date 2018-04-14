@@ -102,7 +102,7 @@ class Account extends Model{
       $pseudo = htmlspecialchars($_POST['pseudo']);
       $email = htmlspecialchars($_POST['email']);
       $_POST['pass'] = htmlspecialchars($_POST['pass']);
-
+      
       // Check errors 
       if(empty($pseudo)){
         $errorMessages[] = 'Missing username';
